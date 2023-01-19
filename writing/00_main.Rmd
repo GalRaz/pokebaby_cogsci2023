@@ -1,0 +1,85 @@
+---
+title: "Familiarity preference something something??? "
+bibliography: library.bib
+csl: apa6.csl
+document-params: "10pt, letterpaper"
+
+author-information: > 
+    \author{Gal Raz$^1$ (galraz@mit.edu),
+    \bf{Anjie Cao$^2$  (anjiecao@stanford.edu)},\\
+    \bf{Michael C. Frank$^2$ (mcfrank@stanford.edu)},
+     and \bf{Rebecca Saxe$^1$ (saxe@mit.edu)} \\
+    $^1$Department of Brain and Cognitive Sciences, MIT,
+    $^2Department of Psychology, Stanford University$ \\
+    }
+
+abstract: >
+  haha
+    
+keywords: >
+    decision making; learning; bayesian modeling; cognitive development 
+
+    
+output: 
+    cogsci2016::cogsci_paper
+    
+  
+nocite: | 
+ 
+
+final-submission: \cogscifinalcopy
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=3, fig.height=3, fig.crop = F, 
+                      fig.pos = "tb", fig.path='figs/',
+                      echo=F, warning=F, cache=F, 
+                      message=F, sanitize = T)
+```
+
+
+
+# Introduction 
+
+
+```{r child = "01_introduction.Rmd"}
+```
+
+
+# Experiment 1 
+
+## Methods
+
+```{r child = "02_experiment1_methods.Rmd"}
+```
+
+## Results and discussion
+
+```{r child = "03_experiment1_results.Rmd"}
+```
+
+# Experiment 2
+
+## Methods
+
+```{r child = "04_experiment2_methods.Rmd"}
+```
+
+## Results and discussion
+
+```{r child = "05_experiment2_results.Rmd"}
+
+```
+
+
+# General discussion 
+
+```{r child = "06_general_discussion.Rmd"}
+```
+
+# References 
+
+\setlength{\parindent}{-0.1in} 
+\setlength{\leftskip}{0.125in}
+\noindent
