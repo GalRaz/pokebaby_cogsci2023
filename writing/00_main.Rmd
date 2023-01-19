@@ -10,7 +10,7 @@ author-information: >
     \bf{Michael C. Frank$^2$ (mcfrank@stanford.edu)},
      and \bf{Rebecca Saxe$^1$ (saxe@mit.edu)} \\
     $^1$Department of Brain and Cognitive Sciences, MIT,
-    $^2Department of Psychology, Stanford University$ \\
+    $^2$Department of Psychology, Stanford University \\
     }
 
 abstract: >
