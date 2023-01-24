@@ -39,6 +39,23 @@ knitr::opts_chunk$set(fig.width=3, fig.height=3, fig.crop = F,
 ```
 
 
+```{r}
+library(tidyverse)
+library(here)
+library(lme4)
+library(lmerTest)
+library(broom.mixed)
+
+preschool_d <- read_csv(here("data/preschooler/clean_data.csv"))
+preschool_raw_d <- read_csv(here("data/preschooler/merged_data.csv"))
+
+
+#Read in cached model 
+preschool_general_mod <- readRDS(here("cached_data/preschooler/preschool_general_mod.Rds"))
+fam_mod <- readRDS(here("cached_data/preschooler/fam_mod.Rds"))
+```
+
+
 
 # Introduction 
 
