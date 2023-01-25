@@ -1,0 +1,70 @@
+
+
+# cache pre-registered models
+```{r eval=FALSE, include=FALSE}
+
+# prepare fam and test df with exclusions
+fam_df = infant_d %>% filter(fam_or_test == 'fam', !exclude) %>% mutate(fam_duration = as.numeric(fam_duration))
+test_df = infant_d %>% filter(fam_or_test == 'test', !exclude) %>% mutate(fam_duration = as.numeric(fam_duration))
+
+
+# EXP3 only
+
+# interaction model
+model_1_exp3 <- lmer(log(LT) ~ poly(fam_duration,2) *test_type + trial_num + (1 | subject_num), data = test_df)
+
+# ns. because of non-linear interaction
+
+# dishabituation
+model_2_exp3 <- lmer(log(LT) ~ test_type + trial_num + (1 | subject_num), data = test_df %>% filter(experiment == 3, fam_duration == 8))
+
+# fam pref (EXPLORATORY)
+model_2b_exp3 <- lmer(log(LT) ~ test_type + trial_num + (1 | subject_num), data = test_df %>% filter(experiment == 3, fam_duration == 4))
+
+# cheked for fam pref, but didn't find
+
+# habituation
+model_3_exp3 <- lmer(log(LT) ~ fam_duration + trial_num + (1 | subject_num), data = test_df %>% filter(experiment == 3, test_type == 'fam'))
+
+# manipulation check
+model_4_exp3 <- lmer(log(LT) ~ fam_duration + trial_num + (1 | subject_num), data = fam_df %>% filter(experiment == 3))
+
+
+# EXP4 only
+# interaction model
+model_1_exp4 <- lmer(log(LT) ~ fam_duration *test_type + trial_num + (1 | subject_num), data = test_df %>% filter(experiment == 4))
+
+# dishabituation
+model_2_exp4 <- lmer(log(LT) ~ test_type + trial_num + (1 | subject_num), data = test_df %>% filter(experiment == 4, fam_duration == 9))
+
+# habituation
+model_3_exp4 <- lmer(log(LT) ~ fam_duration + trial_num + (1 | subject_num), data = test_df %>% filter(experiment == 4, test_type == 'fam'))
+
+# manipulation check
+model_4_exp4 <- lmer(log(LT) ~ fam_duration + trial_num + (1 | subject_num), data = fam_df %>% filter(experiment == 4))
+
+
+## Combined models
+
+# fam pref ?
+model_1_comb <- lmer(log(LT) ~ test_type + trial_num + (1 | subject_num), data = test_df %>% filter(fam_duration <= 4))
+
+# non-linearity ?
+model_2_comb <- lmer(log(LT) ~ poly(fam_duration,2) *test_type + trial_num + (1 | subject_num), data = test_df)
+
+
+
+saveRDS(model_1_exp3, here("cached_data/infants/model_1_exp3.Rds"))
+saveRDS(model_2_exp3, here("cached_data/infants/model_2_exp3.Rds"))
+saveRDS(model_2b_exp3, here("cached_data/infants/model_2b_exp3.Rds"))
+saveRDS(model_3_exp3, here("cached_data/infants/model_3_exp3.Rds"))
+saveRDS(model_4_exp3, here("cached_data/infants/model_4_exp3.Rds"))
+
+saveRDS(model_1_exp4, here("cached_data/infants/model_1_exp4.Rds"))
+saveRDS(model_2_exp4, here("cached_data/infants/model_2_exp4.Rds"))
+saveRDS(model_3_exp4, here("cached_data/infants/model_3_exp4.Rds"))
+saveRDS(model_4_exp4, here("cached_data/infants/model_4_exp4.Rds"))
+
+saveRDS(model_1_comb, here("cached_data/infants/model_1_comb.Rds"))
+saveRDS(model_2_comb, here("cached_data/infants/model_2_comb.Rds"))
+```

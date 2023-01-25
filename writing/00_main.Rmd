@@ -49,6 +49,7 @@ library(broom.mixed)
 preschool_d <- read_csv(here("data/preschooler/clean_data.csv"))
 preschool_raw_d <- read_csv(here("data/preschooler/merged_data.csv"))
 
+infant_d <- read_csv(here("data/infant/infant_processed_data.csv"))
 
 #Read in cached model 
 preschool_general_mod <- readRDS(here("cached_data/preschooler/preschool_general_mod.Rds"))
