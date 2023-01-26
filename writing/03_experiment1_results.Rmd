@@ -3,7 +3,9 @@
 # FAILED TO CONVERGE
 #preschool_general_mod <- lmer(trial_looking_time ~ age_in_months * trial_number * trial_type + (trial_number * trial_type | subject), control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 100000)),data = preschool_d)
 
-preschool_general_mod <- lmer(log(trial_looking_time) ~ age_in_months * trial_number * trial_type + (1 | subject), control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 100000)),data = preschool_d)
+# scaled and centered age
+preschool_d <- preschool_d %>% mutate(age_in_months_sc = scale(age_in_months))
+preschool_general_mod <- lmer(log(trial_looking_time) ~ age_in_months_sc * trial_number * trial_type + (1 | subject), control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 100000)),data = preschool_d)
 
 preschool_posthoc_mod <- lmer(log(trial_looking_time) ~  trial_number * trial_type + (1 | subject), control = lmerControl(optimizer = "bobyqa", optCtrl = list(maxfun = 100000)),data = preschool_d)
 
@@ -23,6 +25,51 @@ saveRDS(fam_mod, here("cached_data/preschooler/fam_mod.Rds"))
 
 ```{r}
 
+preschool_d %>% 
+    mutate(deviant_position_print = case_when(
+    deviant_position == 2 ~ "Deviant at 2nd trial", 
+    deviant_position == 4 ~ "Deviant at 4th trial",
+    deviant_position == 6 ~ "Deviant at 6th trial",
+    TRUE ~ "No Deviant"
+  ), 
+    age_print = case_when(
+      child_age_group == 3 ~ "3YO", 
+      child_age_group == 4 ~ "4YO", 
+      child_age_group == 5 ~ "5YO"
+    )
+  ) %>% 
+  filter(participant_type == "kids") %>% 
+  mutate(
+    trial_type = case_when(
+      deviant_position_print == "No Deviant" ~ "baseline", 
+      deviant_position == trial_number ~ "deviant", 
+      TRUE ~ "non-baseline"
+    )
+  ) %>% 
+  filter(!trial_type == "non-baseline") %>% 
+  mutate(across(age_print, factor, levels=c("5YO","4YO","3YO"))) %>% 
+  ggplot(aes(x = trial_number, y = trial_looking_time, color = trial_type)) +
+  stat_summary(fun.data = "mean_cl_boot", 
+               aes(color = as.factor(trial_type))) + 
+  stat_summary(geom = "line", fun.data = "mean_cl_boot",
+               aes(color = as.factor(trial_type))) + 
+  facet_wrap(~age_print)+  
+  scale_color_manual(values = c("blue", "red")) + 
+  xlab("Trial Number") + 
+  ylab("Looking Time (ms)")+
+ # scale_x_log10() +
+  scale_y_log10() + 
+  scale_x_log10()+
+  theme_classic() + 
+  theme(
+    
+    legend.title=element_blank(), 
+    legend.position = "bottom"
+  )
+```
+
+
+```{r}
 
 summary_preschool_mod_df <- broom.mixed::tidy(preschool_general_mod) %>% mutate_if(is.numeric, round, 2)
 fam_mod_df <- broom.mixed::tidy(fam_mod)
@@ -30,8 +77,8 @@ fam_mod_df <- broom.mixed::tidy(fam_mod)
 ```
 
 
-We anticipated that the preschooler children would show patterns of habituation and dishabituation similar to adults. We also expected to see developmental changes in the shape of habituation trajectories. Our pre-registered mixed-effect mod includes a three-way interaction term between age (in months), trial number, and trial type (background or deviant) to predict log-transformed looking time. We only found a main effect of trial number, suggesting that participants look shorter at latter trials ($\beta$ = `r filter(summary_preschool_mod_df, term == "trial_number")$estimate`, *SE* = `r filter(summary_preschool_mod_df, term == "trial_number")$std.error`, *t* = `r filter(summary_preschool_mod_df, term == "trial_number")$statistic`, *p* = `r filter(summary_preschool_mod_df, term == "trial_number")$p.value`). Since there was no reliable age effect, we deviated from the analysis plan and ran a mixed-effect model only including two-way interaction between trial number and trial type. In this model, all predictors were significant (all *p* < 0.01), suggesting our paradigms successfully captured habituation and dishabituation in preschoolers. 
+We anticipated that the preschooler children would show patterns of habituation and dishabituation similar to adults. We also expected to see developmental changes in the shape of habituation trajectories. Our pre-registered mixed-effect mod includes a three-way interaction term between age (in months; scaled and centered), trial number, and trial type (background or deviant) to predict log-transformed looking time. The interaction between the trial number and trial type was significant, suggesting the paradigm has captured habituation and novelty preference in preschoolers ($\beta$ = `r filter(summary_preschool_mod_df, term == "trial_number:trial_typedeviant")$estimate`, *SE* = `r filter(summary_preschool_mod_df, term == "trial_number:trial_typedeviant")$std.error`, *t* = `r filter(summary_preschool_mod_df, term == "trial_number:trial_typedeviant")$statistic`, *p* < 0.01). However, we did not find any significant interaction with age, nor was the main effect significant (all *p* > 0.1).
 
-We also explored the potential familiarity preference by comparing the looking time at the second background trial and the second deviant trial. Under the Hunter & Ames (1988), the second trial in each block is most likely to yield a familiarity preference, since participants receive the least amount of familiarization with the background stimulus in a block. If there is a familiarity preference, participants should look longer at a background trial than a deviant trial. However, we did not find evidence supporting this prediction. We ran a mixed effect model predicting looking time at the second trial with trial type as the predictor. There was a significant trial type effect in the opposite direction, suggesting participants looked longer at the deviant trial than the background trial even with as little as one trial of familiarization time ($\beta$ = `r round(filter(fam_mod_df, term == "trial_typedeviant")$estimate, 2)`, *SE* = `r round(filter(fam_mod_df, term == "trial_typedeviant")$std.error, 2)`, *t* = `r round(filter(fam_mod_df, term == "trial_typedeviant")$statistic, 2)`, *p* < 0.01).  
+We also explored the potential familiarity preference by comparing the looking time at the second background trial and the second deviant trial. Under the Hunter & Ames (1988), the second trial in each block is most likely to yield a familiarity preference, since participants receivee the least amount of familiarization with the background stimulus in a block. If there was a familiarity preference, participants should look longer at a background trial than a deviant trial. However, we did not find evidence supporting this prediction. We ran a mixed effect model predicting looking time at the second trial with trial type as the predictor. There was a significant trial type effect in the opposite direction, suggesting participants looked longer at the deviant trial than the background trial even with as little as one trial of familiarization time ($\beta$ = `r round(filter(fam_mod_df, term == "trial_typedeviant")$estimate, 2)`, *SE* = `r round(filter(fam_mod_df, term == "trial_typedeviant")$std.error, 2)`, *t* = `r round(filter(fam_mod_df, term == "trial_typedeviant")$statistic, 2)`, *p* < 0.01).  
 
-In summary, This current experiment replicated the finding in  We captured habituation and dishabituation with a developmental sample. More importantly, under the current paradigm, we did not find any evidence of familiarity preference for this younger age group. We moved to the infant samples in the next experiment.
+In summary, this experiment captured habituation and novelty preference with in preschoolers, replicating the patterns we saw in the previous adult samples (CITE).  Notably, under the current paradigm, we did not find any evidence of familiarity preference. We moved to the infant samples in the next experiment.

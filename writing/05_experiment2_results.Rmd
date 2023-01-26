@@ -1,7 +1,7 @@
 
 
-# cache pre-registered models
 ```{r eval=FALSE, include=FALSE}
+# cache pre-registered models
 
 # prepare fam and test df with exclusions
 fam_df = infant_d %>% filter(fam_or_test == 'fam', !exclude) %>% mutate(fam_duration = as.numeric(fam_duration))
@@ -42,13 +42,24 @@ saveRDS(model_3c, here("cached_data/infants/model_3c.rds"))
 
 ```
 
+```{r}
+model_1a_df <- tidy(model_1a) %>% mutate_if(is.numeric, round, 2)
+model_2a_df <- tidy(model_2a) %>% mutate_if(is.numeric, round, 2)
+model_2b_df <- tidy(model_2b) %>%  mutate_if(is.numeric, round, 2)
+model_3a_df <-tidy(model_3a) %>%  mutate_if(is.numeric, round, 2)
+model_3b_df <-tidy(model_3b) %>%  mutate_if(is.numeric, round, 2)
+model_3c_df <-tidy(model_3c) %>%  mutate_if(is.numeric, round, 2)
+```
 
-To test the prediction that partial encoding elicits familiarity preferences,
-while complete encoding elicits novelty preferences, we pre-registered a model
-which allows for a non-linear interaction between exposure duration by adding a 
-quadratic effect of familiarization duration, and its interaction with novelty. 
-We found that neither the main effect, nor the interaction of that quadratic term were significant (Model 1a; main effect & interaction of poly2 terms), while the interaction of novelty with the linear term was significant (Model 1a; interaction of poly1 terms). This suggests that novelty preferences get stronger as a function familiarization duration, but that there is no special effect of partial encoding as posited by H&A. Furthermore, there was a significant decrease in looking times to the familiar items as a function of familiarization duration (Model 1a, poly(fam_duration, 1)), indicating that infants habituated to familiar stimuli in our paradigm.
-We next tested specifically for the existence of familiarity preference in our dataset. After finding a hint of a familiarity preference after four familiarizations in the first study, which did not turn out significant in an exploratory analysis (Model 2a: test type effect), we argued that if familiarity preferences are driven by partial encoding, any condition in which there were fewer exposures should also reveal a familiarity preference. We therefore tested whether looking to the familiar stimulus was longer in all trial with four or less exposures, which it did not (Model 2b; test type effect). Novelty preferences on the other hand were robust after 8 (Model 3a; test type effect) and 9 familiarizations (Model 3b; test type effect), as well as in the combined dataset (Model 3c; test type effect).
+
+To test the prediction that partial encoding elicits familiarity preferences, while complete encoding elicits novelty preferences, we pre-registered a model which allows for a non-linear interaction between exposure duration by adding a quadratic effect of familiarization duration, and its interaction with novelty. 
+
+We found that neither the main effect, nor the interaction of that quadratic term were significant (Main effect: $\beta$ = `r filter(model_1a_df, term == "poly(fam_duration, 2)2")$estimate`; *SE* = `r filter(model_1a_df, term == "poly(fam_duration, 2)2")$std.error`; *t* = `r filter(model_1a_df, term == "poly(fam_duration, 2)2")$statistic`; *p* =  `r filter(model_1a_df, term == "poly(fam_duration, 2)2")$p.value`; Interaction effect: $\beta$ = `r filter(model_1a_df, term == "poly(fam_duration, 2)2:test_typenov")$estimate`; *SE* = `r filter(model_1a_df, term == "poly(fam_duration, 2)2:test_typenov")$std.error`; *t* = `r filter(model_1a_df, term == "poly(fam_duration, 2)2:test_typenov")$statistic`; *p* =  `r filter(model_1a_df, term == "poly(fam_duration, 2)2:test_typenov")$p.value`), while the interaction of novelty with the linear term was significant ($\beta$ = `r filter(model_1a_df, term == "poly(fam_duration, 2)1:test_typenov")$estimate`; *SE* = `r filter(model_1a_df, term == "poly(fam_duration, 2)1:test_typenov")$std.error`; *t* = `r filter(model_1a_df, term == "poly(fam_duration, 2)1:test_typenov")$statistic`; *p* =  `r filter(model_1a_df, term == "poly(fam_duration, 2)1:test_typenov")$p.value`). This suggests that novelty preferences get stronger as a function familiarization duration, but that there is no special effect of partial encoding as posited by H&A. Furthermore, there was a significant decrease in looking times to the familiar items as a function of familiarization duration, indicating that infants habituated to familiar stimuli in our paradigm ($\beta$ = `r filter(model_1a_df, term == "poly(fam_duration, 2)1")$estimate`; *SE* = `r filter(model_1a_df, term == "poly(fam_duration, 2)1")$std.error`; *t* = `r filter(model_1a_df, term == "poly(fam_duration, 2)1")$statistic`; *p* =  `r filter(model_1a_df, term == "poly(fam_duration, 2)1")$p.value`).
+
+We next tested specifically for the existence of familiarity preference in our dataset. After finding a hint of a familiarity preference after four familiarizations in the first study, which did not turn out significant in an exploratory analysis ($\beta$ = `r filter(model_2a_df, term == "test_typenov")$estimate`; *SE* = `r filter(model_2a_df, term == "test_typenov")$std.error`; *t* = `r filter(model_2a_df, term == "test_typenov")$statistic`; *p* =  `r filter(model_2a_df, term == "test_typenov")$p.value`), we argued that if familiarity preferences are driven by partial encoding, any condition in which there were fewer exposures should also reveal a familiarity preference. We therefore tested whether looking to the familiar stimulus was longer in all trial with four or less exposures. We did not find any evidence supporting this prediction ($\beta$ = `r filter(model_2b_df, term == "test_typenov")$estimate`; *SE* = `r filter(model_2b_df, term == "test_typenov")$std.error`; *t* = `r filter(model_2b_df, term == "test_typenov")$statistic`; *p* =  `r filter(model_2b_df, term == "test_typenov")$p.value`).
+
+Novelty preferences, on the other hand, were robust after 8 ($\beta$ = `r filter(model_3a_df, term == "test_typenov")$estimate`; *SE* = `r filter(model_3a_df, term == "test_typenov")$std.error`; *t* = `r filter(model_3a_df, term == "test_typenov")$statistic`; *p* =  `r filter(model_3a_df, term == "test_typenov")$p.value`) and 9 familiarizations ($\beta$ = `r filter(model_3b_df, term == "test_typenov")$estimate`; *SE* = `r filter(model_3b_df, term == "test_typenov")$std.error`; *t* = `r filter(model_3b_df, term == "test_typenov")$statistic`; *p* < 0.01), as well as in the combined dataset ($\beta$ = `r filter(model_3c_df, term == "test_typenov")$estimate`; *SE* = `r filter(model_3c_df, term == "test_typenov")$std.error`; *t* = `r filter(model_3c_df, term == "test_typenov")$statistic`; *p* < 0.01).
+
 
 
 
