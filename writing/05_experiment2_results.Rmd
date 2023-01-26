@@ -19,7 +19,7 @@ model_1b <- lmer(log(LT) ~ poly(fam_duration,2) *test_type + trial_num + (1 | su
 
 
 # fam pref (EXPLORATORY)
-model_2a <- lmer(log(LT) ~ test_type + trial_num + (1 | subject_num), data = test_df %>% filter(experiment == 3, fam_duration == 4))
+model_2a <- lmer(log(LT) ~ test_type + trial_num + (1 | subject_num), data = test_df %>% filter(experiment == 'A', fam_duration == 4))
 
 # fam pref pre-registered?
 model_2b <- lmer(log(LT) ~ test_type + trial_num + (1 | subject_num), data = test_df %>% filter(fam_duration <= 4 & fam_duration != 0))

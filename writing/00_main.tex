@@ -90,7 +90,7 @@ the attention-check task failed to meet the inclusion criteria. We also
 excluded trials with looking time that were three absolute deviations
 away from the median in the log-transformed space across participants.
 The final datasets includes 64 children in total (3YO: N = 18; 4YO: N =
-26; 5YO: N = 20 ). All participants were recruited in a
+26; 5YO: N = 20). All participants were recruited in a
 university-affiliated research preschool.
 
 \hypertarget{stimuli}{%
@@ -103,8 +103,8 @@ creatures had high perceptual complexity, and half had low perceptual
 complexity. We used the high perceptual complexity stimuli for the
 current study.
 
-\hypertarget{procedures}{%
-\subsection{Procedures}\label{procedures}}
+\hypertarget{procedure}{%
+\subsection{Procedure}\label{procedure}}
 
 Children were tested individually in a test room by an experimenter. The
 experimenter invited the child to ``meet some monster friends'' and then
@@ -145,7 +145,7 @@ latter trials (\(\beta\) = -0.1, \emph{SE} = 0.05, \emph{t} = -2.05,
 \emph{p} = 0.04). Since there was no reliable age effect, we deviated
 from the analysis plan and ran a mixed-effect model only including
 two-way interaction between trial number and trial type. In this model,
-all predictors were significant (all \emph{p}\textless{} 0.01),
+all predictors were significant (all \emph{p} \textless{} 0.01),
 suggesting our paradigms successfully captured habituation and
 dishabituation in preschoolers.
 
@@ -176,29 +176,136 @@ to the infant samples in the next experiment.
 \hypertarget{methods-1}{%
 \subsection{Methods}\label{methods-1}}
 
-We anticipated that preschoolers would show patterns of habituation and
-dishabituation similar to adults. We also expected to see developmental
-changes in the shape of habituation trajectories. Our pre-registered
-mixed-effect mod includes a three-way interaction term between age (in
-months), trial number, and trial type (background or deviant) to predict
-looking time. We found an interaction between {[}XXXX{]}, suggesting
-that we successfully captured the habituation and dishabituation.
-However, we did not find evidence suggesting that age is associated with
-looking time (STATS). We also explored the potential familiarity
-preference by comparing the looking time at the second background trial
-and the second deviant trial. We ran a mixed effect model predicting
-looking time at the second trial, with the interaction term between age
-and trial type as the predictor. We found no evidence for familiarity
-preference across age groups (CITE).
+Classical theories of attentional preferences in development posit that
+younger participants are more likely to exhibit familiarity preferences
+for a given stimulus due to their reduced encoding speed (CITE). Indeed,
+prior studies show a reversal from novelty to familiarity preferences
+when testing younger samples (CITE that grammar infant study, Cyr, H\&A
+?). To this end, in Experiment 2, we test the model predictions in
+preverbal infants, and try to evoke both familiarity and novelty
+preferences by interrupting familiarization to a stimulus at different
+time points.
 
-This current experiment replicated the finding in CITE. We captured
-habituation and dishabituation with a developmental sample. More
-importantly, under the current paradigm, we did not find any evidence of
-familiarity preference for this younger age group. We moved to the
-infant samples in the next experiment.
+To this end, we developed a new infant looking paradigm which mirrors
+the adult (Cao et al., 2022) and preschooler paradigm (Experiment 1). In
+this paradigm, infants are familiarized to multiple stimuli for
+different exposure durations within a single session in a blocked
+design. This is in contrast to the standard infant
+familiarization/habituation paradigm in which typically infants are
+familiarized to only one stimulus throughout the experiment, which makes
+the effect of exposure duration difficult to estimate. By presenting
+infants with multiple blocks with varying familiarization times, we can
+now measure the effect of familiarization on preference within subjects.
+
+To get a dense estimate of exposure durations, we pre-registered and ran
+two experiments, sequentially, with two sets of exposure durations. The
+first experiment showed infants blocks of 0, 4 or 8 familiarizations
+(Exp A; pre-registered here {[}link{]}). The second experiment showed
+infants blocks of 1, 3 or 9 familiarizations (Exp B; pre-registered here
+{[}link{]}).
+
+\hypertarget{participants-1}{%
+\subsection{Participants}\label{participants-1}}
+
+We tested a combined sample of 66 7-10 month old infants, with 31 in Exp
+A and 35 in Exp B (\(M_{age}\) = 9.5 months, 31 female). 5 participants
+were excluded completely due to fussiness (Exp A:, 2, Exp B: 3). We also
+excluded an additional 72 individual test trials in which 1) infants
+looked at the stimuli for less than a total 2 seconds, 2) there were
+momentary external distractions in the home of the infant or 3) the gaze
+classifier (see \textbf{Looking time coding}) had an average
+classification confidence of less than 50\%. Data collection was
+performed synchronously on Zoom, and infants were recruited from Lookit
+and Facebook.
+
+\hypertarget{stimuli-1}{%
+\subsection{Stimuli}\label{stimuli-1}}
+
+Infants saw a different stimulus set from the preschoolers. In a
+previous study, we showed the infants the Spore stimulus set used in
+preschoolers, but we were unable to elicit robust dishabituation
+effects, which we considered critical for the validity of the paradigm.
+Instead, we presented with a series of animated animals, which we
+created using Unity assets (\url{https://tinyurl.com/469xxrn7}). The
+animals were walking, crawling or swimming, depending on the species.
+
+\hypertarget{procedure-1}{%
+\subsection{Procedure}\label{procedure-1}}
+
+This experiment followed a block structure, where each block was divided
+into two sections: 1) A familiarization period and 2) a test event. Each
+block was preceded by our lab-standard attention getter, a salient
+rotating star. During the familiarization period, the infant was
+familiarized to a particular animal, the background, in a series of
+familiarization trials. Each familiarization trial was a 5 second long
+presentation of the animal, during which the animated animal appears
+behind curtains that open for 1 second, then the animal was presented in
+that size for 3 seconds, and then the curtains closed again for 1
+second. We refer to the number of times the curtain opened and closed as
+the ``familiarization duration'', which varied between blocks.
+
+During the test event, the infant saw either the same background animal
+again, or a novel animal, the deviant. The onset of the test event was
+not marked by any visual markers, but a bell sound is played as the
+curtains open, to maximize the chance of engagement during the test
+trial. The test event used an infant-controlled procedure, in which the
+experimenter terminated the trial when the infant looked away for more
+than three consecutive seconds. Looking time was defined as the total
+time that the infant spends looking at the screen from the onset of the
+stimulus until the first two consecutive seconds of the infant looking
+away from the screen. The discrepancy between the experimenter criterion
+and the looking time criterion was to be conservative in stopping trials
+to avoid early trial terminations. If the infant did not meet the
+lookaway criterion after 60 seconds of being presented with the test
+event, the next block automatically began and infants' looking time for
+this test event was recorded as 60 seconds.
+
+Each baby saw six blocks: Three different familiarization durations (0,
+4 and 8 in Exp A, and 1, 3 and 9 in Exp B) appeared twice each, once for
+each test event type (background or deviant).
+
+\hypertarget{looking-time-coding}{%
+\subsection{Looking time coding}\label{looking-time-coding}}
+
+To code the infants' gaze we used iCatcher+, a validated tool developed
+for robust and automatic annotation of infants' gaze direction from
+video (Erel et al., 2022). To obtain trial-wise looking times, we merged
+iCatcher+ annotations with trial timing information, thereby fully
+replacing the field-standard of manual coding of looking times.
 
 \hypertarget{results-and-discussion-1}{%
 \subsection{Results and discussion}\label{results-and-discussion-1}}
+
+\hypertarget{cache-pre-registered-models}{%
+\section{cache pre-registered
+models}\label{cache-pre-registered-models}}
+
+To test the prediction that partial encoding elicits familiarity
+preferences, while complete encoding elicits novelty preferences, we
+pre-registered a model which allows for a non-linear interaction between
+exposure duration by adding a quadratic effect of familiarization
+duration, and its interaction with novelty. We found that neither the
+main effect, nor the interaction of that quadratic term were significant
+(Model 1a; main effect \& interaction of poly2 terms), while the
+interaction of novelty with the linear term was significant (Model 1a;
+interaction of poly1 terms). This suggests that novelty preferences get
+stronger as a function familiarization duration, but that there is no
+special effect of partial encoding as posited by H\&A. Furthermore,
+there was a significant decrease in looking times to the familiar items
+as a function of familiarization duration (Model 1a, poly(fam\_duration,
+1)), indicating that infants habituated to familiar stimuli in our
+paradigm. We next tested specifically for the existence of familiarity
+preference in our dataset. After finding a hint of a familiarity
+preference after four familiarizations in the first study, which did not
+turn out significant in an exploratory analysis (Model 2a: test type
+effect), we argued that if familiarity preferences are driven by partial
+encoding, any condition in which there were fewer exposures should also
+reveal a familiarity preference. We therefore tested whether looking to
+the familiar stimulus was longer in all trial with four or less
+exposures, which it did not (Model 2b; test type effect). Novelty
+preferences on the other hand were robust after 8 (Model 3a; test type
+effect) and 9 familiarizations (Model 3b; test type effect), as well as
+in the combined dataset (Model 3c; test type effect).
 
 \hypertarget{general-discussion}{%
 \section{General discussion}\label{general-discussion}}
