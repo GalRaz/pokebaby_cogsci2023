@@ -58,19 +58,14 @@ preschool_general_mod <- readRDS(here("cached_data/preschooler/preschool_general
 fam_mod <- readRDS(here("cached_data/preschooler/fam_mod.Rds"))
 
 # infants
-model_1_exp3 <- readRDS( here("cached_data/infants/model_1_exp3.Rds"))
-model_2_exp3 <- readRDS( here("cached_data/infants/model_2_exp3.Rds"))
-model_2b_exp3 <- readRDS( here("cached_data/infants/model_2b_exp3.Rds"))
-model_3_exp3 <- readRDS( here("cached_data/infants/model_3_exp3.Rds"))
-model_4_exp3 <- readRDS( here("cached_data/infants/model_4_exp3.Rds"))
+model_1a <- readRDS( here("cached_data/infants/model_1a.rds" ))
+model_1b <- readRDS( here("cached_data/infants/model_1b.rds" ))
+model_2a <- readRDS( here("cached_data/infants/model_2a.rds" ))
+model_2b <- readRDS( here("cached_data/infants/model_2b.rds" ))
+model_3a <- readRDS( here("cached_data/infants/model_3a.rds" ))
+model_3b <- readRDS( here("cached_data/infants/model_3b.rds" ))
+model_3c <- readRDS( here("cached_data/infants/model_3c.rds" ))
 
-model_1_exp4 <- readRDS( here("cached_data/infants/model_1_exp4.Rds"))
-model_2_exp4 <- readRDS( here("cached_data/infants/model_2_exp4.Rds"))
-model_3_exp4 <- readRDS( here("cached_data/infants/model_3_exp4.Rds"))
-model_4_exp4 <- readRDS( here("cached_data/infants/model_4_exp4.Rds"))
-
-model_1_comb <- readRDS( here("cached_data/infants/model_1_comb.Rds"))
-model_2_comb <- readRDS( here("cached_data/infants/model_2_comb.Rds"))
 ```
 
 
