@@ -90,7 +90,7 @@ the attention-check task failed to meet the inclusion criteria. We also
 excluded trials with looking time that were three absolute deviations
 away from the median in the log-transformed space across participants.
 The final datasets includes 64 children in total (3YO: N = 18; 4YO: N =
-26; 5YO: N = 20 ). All participants were recruited in a
+26; 5YO: N = 20). All participants were recruited in a
 university-affiliated research preschool.
 
 \hypertarget{stimuli}{%
@@ -134,41 +134,43 @@ in the experiment.
 \hypertarget{results-and-discussion}{%
 \subsection{Results and discussion}\label{results-and-discussion}}
 
+\begin{CodeChunk}
+
+\includegraphics{figs/unnamed-chunk-10-1} \end{CodeChunk}
+
 We anticipated that the preschooler children would show patterns of
 habituation and dishabituation similar to adults. We also expected to
 see developmental changes in the shape of habituation trajectories. Our
 pre-registered mixed-effect mod includes a three-way interaction term
-between age (in months), trial number, and trial type (background or
-deviant) to predict log-transformed looking time. We only found a main
-effect of trial number, suggesting that participants look shorter at
-latter trials (\(\beta\) = -0.1, \emph{SE} = 0.05, \emph{t} = -2.05,
-\emph{p} = 0.04). Since there was no reliable age effect, we deviated
-from the analysis plan and ran a mixed-effect model only including
-two-way interaction between trial number and trial type. In this model,
-all predictors were significant (all \emph{p}\textless{} 0.01),
-suggesting our paradigms successfully captured habituation and
-dishabituation in preschoolers.
+between age (in months; scaled and centered), trial number, and trial
+type (background or deviant) to predict log-transformed looking time.
+The interaction between the trial number and trial type was significant,
+suggesting the paradigm has captured habituation and novelty preference
+in preschoolers (\(\beta\) = 0.14, \emph{SE} = 0.02, \emph{t} = 6.22,
+\emph{p} \textless{} 0.01). However, we did not find any significant
+interaction with age, nor was the main effect significant (all \emph{p}
+\textgreater{} 0.1).
 
 We also explored the potential familiarity preference by comparing the
 looking time at the second background trial and the second deviant
 trial. Under the Hunter \& Ames (1988), the second trial in each block
 is most likely to yield a familiarity preference, since participants
-receive the least amount of familiarization with the background stimulus
-in a block. If there is a familiarity preference, participants should
-look longer at a background trial than a deviant trial. However, we did
-not find evidence supporting this prediction. We ran a mixed effect
-model predicting looking time at the second trial with trial type as the
-predictor. There was a significant trial type effect in the opposite
-direction, suggesting participants looked longer at the deviant trial
-than the background trial even with as little as one trial of
+receivee the least amount of familiarization with the background
+stimulus in a block. If there was a familiarity preference, participants
+should look longer at a background trial than a deviant trial. However,
+we did not find evidence supporting this prediction. We ran a mixed
+effect model predicting looking time at the second trial with trial type
+as the predictor. There was a significant trial type effect in the
+opposite direction, suggesting participants looked longer at the deviant
+trial than the background trial even with as little as one trial of
 familiarization time (\(\beta\) = 0.41, \emph{SE} = 0.03, \emph{t} =
 12.24, \emph{p} \textless{} 0.01).
 
-In summary, This current experiment replicated the finding in We
-captured habituation and dishabituation with a developmental sample.
-More importantly, under the current paradigm, we did not find any
-evidence of familiarity preference for this younger age group. We moved
-to the infant samples in the next experiment.
+In summary, this experiment captured habituation and novelty preference
+with in preschoolers, replicating the patterns we saw in the previous
+adult samples (CITE). Notably, under the current paradigm, we did not
+find any evidence of familiarity preference. We moved to the infant
+samples in the next experiment.
 
 \hypertarget{experiment-2}{%
 \section{Experiment 2}\label{experiment-2}}
@@ -176,29 +178,53 @@ to the infant samples in the next experiment.
 \hypertarget{methods-1}{%
 \subsection{Methods}\label{methods-1}}
 
-We anticipated that preschoolers would show patterns of habituation and
-dishabituation similar to adults. We also expected to see developmental
-changes in the shape of habituation trajectories. Our pre-registered
-mixed-effect mod includes a three-way interaction term between age (in
-months), trial number, and trial type (background or deviant) to predict
-looking time. We found an interaction between {[}XXXX{]}, suggesting
-that we successfully captured the habituation and dishabituation.
-However, we did not find evidence suggesting that age is associated with
-looking time (STATS). We also explored the potential familiarity
-preference by comparing the looking time at the second background trial
-and the second deviant trial. We ran a mixed effect model predicting
-looking time at the second trial, with the interaction term between age
-and trial type as the predictor. We found no evidence for familiarity
-preference across age groups (CITE).
-
-This current experiment replicated the finding in CITE. We captured
-habituation and dishabituation with a developmental sample. More
-importantly, under the current paradigm, we did not find any evidence of
-familiarity preference for this younger age group. We moved to the
-infant samples in the next experiment.
-
 \hypertarget{results-and-discussion-1}{%
 \subsection{Results and discussion}\label{results-and-discussion-1}}
+
+\hypertarget{cache-pre-registered-models}{%
+\section{cache pre-registered
+models}\label{cache-pre-registered-models}}
+
+\(\beta\) = \texttt{r}; \emph{SE} = \texttt{r}; \emph{t} = \texttt{r};
+\emph{p} = \texttt{r}
+
+To test the prediction that partial encoding elicits familiarity
+preferences, while complete encoding elicits novelty preferences, we
+pre-registered a model which allows for a non-linear interaction between
+exposure duration by adding a quadratic effect of familiarization
+duration, and its interaction with novelty.
+
+We found that neither the main effect, nor the interaction of that
+quadratic term were significant (Main effect: \(\beta\) = 0.46;
+\emph{SE} = 0.88; \emph{t} = 0.53; \emph{p} = 0.6; Interaction effect:
+\(\beta\) = 0.4; \emph{SE} = 1.58; \emph{t} = 0.26; \emph{p} = 0.8),
+while the interaction of novelty with the linear term was significant
+(\(\beta\) = 4.38; \emph{SE} = 1.56; \emph{t} = 2.8; \emph{p} = 0.01).
+This suggests that novelty preferences get stronger as a function
+familiarization duration, but that there is no special effect of partial
+encoding as posited by H\&A. Furthermore, there was a significant
+decrease in looking times to the familiar items as a function of
+familiarization duration, indicating that infants habituated to familiar
+stimuli in our paradigm (\(\beta\) = -2.32; \emph{SE} = 0.87; \emph{t} =
+-2.66; \emph{p} = 0.01).
+
+We next tested specifically for the existence of familiarity preference
+in our dataset. After finding a hint of a familiarity preference after
+four familiarizations in the first study, which did not turn out
+significant in an exploratory analysis (\(\beta\) = -0.2; \emph{SE} = ;
+\emph{t} = -1.06; \emph{p} = 0.3), we argued that if familiarity
+preferences are driven by partial encoding, any condition in which there
+were fewer exposures should also reveal a familiarity preference. We
+therefore tested whether looking to the familiar stimulus was longer in
+all trial with four or less exposures, which it did not (\(\beta\) =
+0.07; \emph{SE} = ; \emph{t} = 0.65; \emph{p} = 0.52).
+
+Novelty preferences, on the other hand, were robust after 8 (\(\beta\) =
+0.5; \emph{SE} = ; \emph{t} = 2.9; \emph{p} = 0.01) and 9
+familiarizations (\(\beta\) = 0.6; \emph{SE} = ; \emph{t} = 4.15;
+\emph{p} \textless{} 0.01), as well as in the combined dataset
+(\(\beta\) = 0.54; \emph{SE} = ; \emph{t} = 4.44; \emph{p} \textless{}
+0.01).
 
 \hypertarget{general-discussion}{%
 \section{General discussion}\label{general-discussion}}
