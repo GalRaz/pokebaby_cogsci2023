@@ -19,7 +19,7 @@ preschool_subject_df <- preschool_d %>%
 
 We used a subset of stimuli created for the adult self-paced looking time studies. In the previous study, we created a set of animated creatures using Spore (a game developed by Maxis in 2008). Half of the creatures had high perceptual complexity, and half had low perceptual complexity. We used the high perceptual complexity stimuli for the current study. 
 
-## Procedures 
+## Procedure
 
 Children were tested individually in a test room by an experimenter. The experimenter invited the child to “meet some monster friends” and then familiarized the child with the laptop computer used to present the experiment. Before the test, each child went through a practice phase where they practiced pressing the space bar to move on to the next trial. The child was instructed that they can press the key and move on to meet more monster friends whenever they want. 
 
