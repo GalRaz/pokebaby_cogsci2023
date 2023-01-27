@@ -45,13 +45,14 @@ library(here)
 library(lme4)
 library(lmerTest)
 library(broom.mixed)
+library(magrittr)
 
 preschool_d <- read_csv(here("data/preschooler/clean_data.csv"))
 preschool_raw_d <- read_csv(here("data/preschooler/merged_data.csv"))
 
 infant_d <- read_csv(here("data/infant/infant_processed_data.csv"))
 
-#Read in cached model 
+#Read in cached models 
 
 # preschoolers
 preschool_general_mod <- readRDS(here("cached_data/preschooler/preschool_general_mod.Rds"))
@@ -60,8 +61,12 @@ fam_mod <- readRDS(here("cached_data/preschooler/fam_mod.Rds"))
 # infants
 model_1a <- readRDS( here("cached_data/infants/model_1a.rds" ))
 model_1b <- readRDS( here("cached_data/infants/model_1b.rds" ))
+model_1c <- readRDS( here("cached_data/infants/model_1b.rds" ))
+
 model_2a <- readRDS( here("cached_data/infants/model_2a.rds" ))
 model_2b <- readRDS( here("cached_data/infants/model_2b.rds" ))
+model_2c <- readRDS( here("cached_data/infants/model_2c.rds" ))
+model_2d <- readRDS( here("cached_data/infants/model_2d.rds" ))
 model_3a <- readRDS( here("cached_data/infants/model_3a.rds" ))
 model_3b <- readRDS( here("cached_data/infants/model_3b.rds" ))
 model_3c <- readRDS( here("cached_data/infants/model_3c.rds" ))
