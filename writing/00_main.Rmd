@@ -86,11 +86,6 @@ model_3c <- readRDS( here("cached_data/infants/model_3c.rds" ))
 
 ## Methods
 
-@hunter1988multifactor posit that younger participants are more likely to exhibit familiarity preferences for a given stimulus due to their reduced encoding speed. There was empirical evidence showing that younger infants would show familiarity preferences in tasks in which older infants show novelty preferences (Cyr grammar study). This age-related change in preference may explain the lack of familiarity preference observed in adults [@cao2022habituation; Gustafson]. It is possible that adults can process so fast that even brief exposure is sufficient for completing the stimuli encoding. 
-
-To test this age hypothesis, we decided to test young children on an experimental paradigm that has captured habituation and novelty preference in adults [@cao2022habituation]. According to Hunter and Ames (1988), young children should be slower in processing information, making them more likely to show a familiarity preference. 
-
-
 ```{r child = "02_experiment1_methods.Rmd"}
 ```
 

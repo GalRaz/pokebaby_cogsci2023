@@ -12,7 +12,8 @@ preschool_subject_df <- preschool_d %>%
 ```
 
 
-`r n_subject_total` children completed a task modified from the adult self-paced looking time studies reported in CITE. Following our pre-registration (LINK), `r n_subject_total - n_subject_included` children were excluded from the analysis because their performance in the attention-check task failed to meet the inclusion criteria (answering 4 out of the 8 attention check questions correctly). We also excluded trials with looking time that were three absolute deviations away from the median in the log-transformed space across participants (*N* = `r total_excluded_trial`; ). The final datasets includes `r n_subject_included` children in total (3YO: N = `r filter(preschool_subject_df, child_age_group == 3)$n`; 4YO: N = `r filter(preschool_subject_df, child_age_group == 4)$n`; 5YO: N = `r filter(preschool_subject_df, child_age_group == 5)$n`). All participants were recruited in a university-affiliated research preschool. 
+`r n_subject_total` children completed a task modified from the adult self-paced looking time studies reported in CITE. Following our pre-registration (LINK), `r n_subject_total - n_subject_included` children were excluded from the analysis because their performance in the attention-check task failed to meet the inclusion criteria. We also excluded trials with looking time that were three absolute deviations away from the median in the log-transformed space across participants. The final datasets includes `r n_subject_included` children in total (3YO: N = `r filter(preschool_subject_df, child_age_group == 3)$n`; 4YO: N = `r filter(preschool_subject_df, child_age_group == 4)$n`; 5YO: N = `r filter(preschool_subject_df, child_age_group == 5)$n`). All participants were recruited in a university-affiliated research preschool. 
+
 
 ## Stimuli 
 
