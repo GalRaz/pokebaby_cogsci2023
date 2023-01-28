@@ -1,5 +1,5 @@
 ---
-title: "Familiarity preference something something??? "
+title: "No evidence for familiarity preferences after partial exposure to visual concepts in preschoolers and infants"
 bibliography: library.bib
 csl: apa6.csl
 document-params: "10pt, letterpaper"
@@ -7,17 +7,20 @@ document-params: "10pt, letterpaper"
 author-information: > 
     \author{Gal Raz$^1$ (galraz@mit.edu),
     \bf{Anjie Cao$^2$  (anjiecao@stanford.edu)},\\
+    \bf{Ming Khong Bui$^3$  (mbui100@csu.fullerton.edu)},
     \bf{Michael C. Frank$^2$ (mcfrank@stanford.edu)},
      and \bf{Rebecca Saxe$^1$ (saxe@mit.edu)} \\
     $^1$Department of Brain and Cognitive Sciences, MIT,
-    $^2$Department of Psychology, Stanford University \\
+    $^2$Department of Psychology, Stanford University, \\
+    $^3$Department of Communicative Sciences and Disorders, California State University \\
+
     }
 
 abstract: >
-  haha
+  
     
 keywords: >
-    decision making; learning; bayesian modeling; cognitive development 
+    developmental psychology; familiarity prefernces; habituation; learning; attention; cognitive development 
 
     
 output: 
@@ -62,6 +65,8 @@ fam_mod <- readRDS(here("cached_data/preschooler/fam_mod.Rds"))
 
 # infants
 model_1a <- readRDS( here("cached_data/infants/model_1a.rds" ))
+
+
 model_2a <- readRDS( here("cached_data/infants/model_2a.rds" ))
 model_2b <- readRDS( here("cached_data/infants/model_2b.rds" ))
 model_2c <- readRDS( here("cached_data/infants/model_2c.rds" ))
