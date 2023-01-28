@@ -51,5 +51,8 @@ On each trial, the child would see an animated creature appear on the screen. Th
 At the offset of each block, a memory task was presented to ensure children are appropriately attending to the task. The memory task was a 2-Alternative Forced Choice (2AFC) question, asking the children to identify which of the two stimuli they have seen before. The pair of stimuli contained one stimulus used as a background stimulus in the preceding block and a novel stimulus that did not appear anywhere else in the experiment.
 
 
-
+```{r experimental_design, echo = FALSE, fig.env = "figure", fig.pos = "h", fig.align='center', fig.width=2.5, fig.height=2.5, set.cap.width=T, num.cols.cap=2, fig.cap = "Experimental design and examples of simple and complex stimuli. In each block, a deviant could appear on the second, fourth (as depicted here) or sixth trial or not at all. Stimuli within a block were either all simple or all complex."}
+img <- png::readPNG("figs/experimental_design.png")
+grid::grid.raster(img)
+```
 
