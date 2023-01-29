@@ -361,10 +361,10 @@ pre code {
 <p>Throughout development, humans are inundated with visual information.
 Infants and young children constantly decide how much time to spend
 looking at what is in front of them and when to move on to something
-else <span class="citation">[@haith1980rules, @dweck2017needs,
+else <span class="citation">[@haith1980rules; @dweck2017needs;
 @raz2020learning]</span>. Developmental psychologists have long relied
 on infants’ ability to decide what to look at, when making inferences
-about infants’ mental representations <span class="citation">[@aslin2007s, baillargeon1985object,
+about infants’ mental representations <span class="citation">[@aslin2007s; @baillargeon1985object;
 @fantz1963pattern]</span>. In a typical study measuring looking time,
 infants are presented with the same stimulus repeatedly until their
 looking time decreases (i.e. habituation). Then, they are presented with
@@ -387,7 +387,7 @@ familiarity preference.</p>
 <p>However, empirical studies that systematically quantify familiarity
 preferences for visual stimuli tend to be older, have smaller sample
 sizes, and limited or no data available, making them unsuitable for
-evaluating the robustness of the phenomenon <span class="citation">[e.g., @hunter1983effects,
+evaluating the robustness of the phenomenon <span class="citation">[e.g.: @hunter1983effects;
 @rose1982familiarity]</span>. Furthermore, this theoretical framework
 does not include formal criteria to judge the completeness of encoding,
 limiting the precision of predictions for new experiments. The dynamics
@@ -419,41 +419,38 @@ habituation paradigm, reproducing both habituation and novelty
 preferences. However, RANCH also did not predict familiarity preferences
 at any stage of encoding, because its learning policy to maximize
 information gain would always prioritize learning about a novel stimulus
-over a repeated familiar stimulus, just to varying degrees.</p>
-<p>By contrast, other models do seem to contain either indirect or
-direct predictions of familiarity preference. <span class="citation">@kidd2012goldilocks</span> proposed the “Goldilocks
+over a repeated familiar stimulus, just to varying degrees. By contrast,
+other models do seem to contain either indirect or direct predictions of
+familiarity preference. <span class="citation">@kidd2012goldilocks</span> proposed the “Goldilocks
 effect” – infants’ tendency to focus on things that are neither too
 simple nor too complex - as a formal account of infant looking. In this
-work, a Dirichlet-multinomial model was used to learn the relative
-probability of objects appearing in specific locations and related to
-infants’ lookaway probabilities. A U-shaped linking function between the
-model output and attention fit the infants’ behavior best, and although
-this effect was documented in a paradigm that is very different from a
-typical looking time paradigm – infants were looking at a stream of
-rapidly changing events and their lookaways were recorded – it has been
-proposed that the preference for intermediately complex events may
-account for familiarity preferences (CITE; Stahl TICS paper i think).
-More recent work that uses rational information gathering agents to
-explain infant looking behaviors directly predicts familiarity
+work, an ideal learner model tracked the relative probability of objects
+appearing in specific locations in a continuous stream of events, and
+infants’ probability of looking away from each successive object had a
+U-shaped link to the models’ surprisal. It has been suggested that
+infants’ tendency to stay most engaged with moderately predictable
+events may be a reflection of familiarity preferences at early stages of
+encoding. More recent work modeled rational information gathering agents
+to explain infant looking behaviors directly predicts familiarity
 preferences <span class="citation">[@karni2022]</span>. This model is
 similar to RANCH in that its learning policy considers information gain,
-but it also considers another source of value (i.e. Need: how frequently
-the information about each stimulus will be used). These dual processes
-generate non-monotonic changes in looking time, which predict both
-familiarity preferences and novelty preferences.</p>
-<p>To evaluate and compare the predictions of these different model
-types, it is necessary to have quantitative estimates of habituation,
-novelty preferences, and familiarity preferences in infants. Under what
+but it also considers another source of value (i.e. information “need”:
+how frequently the information about each stimulus will be used). These
+dual processes generate non-monotonic changes in looking time, which
+predict both familiarity preferences and novelty preferences. To
+evaluate and compare the predictions of these different model types, it
+is necessary to have quantitative estimates of habituation, novelty
+preferences, and familiarity preferences in infants. Under what
 circumstances do infants look longer at a stimulus, following limited
-exposure and thus potentially partial encoding?</p>
-<p>In this paper, we aim to offer a stronger empirical foundation for
-understanding how the duration of exposure influences looking
-preferences. We conducted a set of experiments with preschoolers and
-infants designed to test the conditions under which a familiarity
-preference could be elicited. For preschoolers, we adapted a self-paced
-looking time paradigm that was previously used to capture habituation
-and novelty preference in adults <span class="citation">[@cao2022habituation]</span>. For infants, we developed
-a novel within-participants measurement paradigm. This set of
+exposure and thus potentially partial encoding? In this paper, we aim to
+offer a stronger empirical foundation for understanding how the duration
+of exposure influences looking preferences. We conducted a set of
+experiments with preschoolers and infants designed to test the
+conditions under which a familiarity preference could be elicited. For
+preschoolers, we adapted a self-paced looking time paradigm that was
+previously used to capture habituation and novelty preference in adults
+<span class="citation">[@cao2022habituation]</span>. For infants, we
+developed a new within-participants measurement paradigm. This set of
 experiments allow us to examine the validity of the assumption that the
 field of developmental psychology holds: familiarity preference would
 arise when the learners have limited experience with stimuli. To

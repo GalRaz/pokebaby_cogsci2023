@@ -20,7 +20,7 @@ abstract: >
   From birth, humans constantly make decisions about what to look at and for how long. A classical framework of information-seeking in development proposes encoding as a key driver of attentional preferences - in early stages of encoding, infants and young children will prefer to engage with a familiar stimulus in order to complete their representation, while at later stages of encoding they will preferentially attend to novel stimuli. While this framework is often invoked in the interpretation of looking times studies, it has not been explicitly validated with large developmental samples. Here, we test these predictions using new looking time paradigms which manipulate exposure durations to different stimuli within-subjects. While we find robust evidence for habituation and novelty prefences across development, limiting exposure to visual concepts did not result in familiarity preferences in any age group. Our findings suggest that partial exposure may not generically lead to familiarity preferences, and that post-hoc rationalizations of observed familiarity preferences should be made with care. We argue that developmental psychology needs formal frameworks that link the learning problem faced by subjects to their attentional preferences, so that such frameworks can be applied predictively, rather than post-hoc.
     
 keywords: >
-    developmental psychology; familiarity preferences; habituation; learning; attention; cognitive development 
+    developmental psychology; familiarity preferences; habituation; learning; attention
 
     
 output: 
@@ -54,8 +54,6 @@ preschool_d <- read_csv(here("data/preschooler/clean_data.csv"))
 preschool_raw_d <- read_csv(here("data/preschooler/merged_data.csv"))
 
 infant_d <- read_csv(here("data/infant/infant_processed_data.csv"))
-# exclude invalid trials
-infant_d %<>% filter(!exclude)
 
 #Read in cached models 
 
@@ -88,39 +86,39 @@ model_3c <- readRDS( here("cached_data/infants/model_3c.rds" ))
 
 # Experiment 1 
 
-@hunter1988multifactor posit that younger participants are more likely to exhibit familiarity preferences for a given stimulus due to their reduced encoding speed. There is some empirical evidence suggesting that younger infants show familiarity preferences in tasks in which older infants show novelty preferences [@thiessen2003cues; @cyr2013development]. This age-related change in preference may explain the lack of familiarity preference observed in adults [@cao2022habituation; @gustafsson2021visual]. It is possible that adults can process so fast that even brief exposure is sufficient for completing the stimuli encoding. 
+@hunter1988multifactor posit that younger participants are more likely to exhibit familiarity preferences after the same amount of exposure to a stimulus due to their reduced encoding speed. There is some empirical evidence suggesting that younger infants show familiarity preferences in tasks in which older infants show novelty preferences [@thiessen2003cues; @cyr2013development]. This age-related change in preference may explain the lack of familiarity preference observed in adults [@cao2022habituation; @gustafsson2021visual]. It is possible that adults can process so fast that even brief exposure is sufficient for completing the stimuli encoding. 
 
-To test this age hypothesis, we tested young children on an experimental paradigm that has captured habituation and novelty preference in adults [@cao2022habituation]. According to @hunter1988multifactor, younger subjects should be slower in processing information, making them more likely to show a familiarity preference. 
+We therefore tested young children on an experimental paradigm that has captured habituation and novelty preference in adults [Fig. 1: left panel, @cao2022habituation]. According to @hunter1988multifactor, younger subjects may be slower in processing information, making them more likely to show a familiarity preference. 
 
 ## Methods
 
 ```{r child = "02_experiment1_methods.Rmd"}
 ```
 
-## Results and discussion
+## Results
 
 ```{r child = "03_experiment1_results.Rmd"}
 ```
 
 # Experiment 2
 
-In the infant paradigm, infants are familiarized to six unique stimuli for different exposure durations within a single session in a blocked design. This is in contrast to the standard infant familiarization/habituation paradigm in which infants are familiarized to only one stimulus throughout the experiment, so effects of exposure duration must be estimated between groups of infants. By presenting infants with multiple blocks with varying familiarization times, we can directly measure the effect of familiarization on looking time within participants.
+In the infant paradigm, infants are familiarized to six unique stimuli for different exposure durations within a single session in a blocked design (Fig. 1, right panel). This is in contrast to the standard infant familiarization/habituation paradigm in which infants are familiarized to only one stimulus throughout an experiment, so effects of exposure duration must be estimated between groups of infants. By presenting individual infants with multiple blocks and varying exposure times, we directly measure the effect of prior exposure on looking times, within participants.
 
-To get a dense estimate of exposure durations, we pre-registered and ran two experiments, sequentially, with two sets of exposure durations. The first experiment showed infants blocks of 0, 4 or 8 familiarizations (Exp A; pre-registered [here](https://osf.io/gux4f/?view_only=b4d6d0118dfa41a79fb431d389f4fecc)). The second experiment showed infants blocks of 1, 3 or 9 familiarizations (Exp B; pre-registered [here](https://osf.io/w6pgu/?view_only=39ee108159884761a0c5bc68d11918df)).
+To get a dense sample of possible exposure durations, we pre-registered and ran two experiments, sequentially, with two sets of exposure durations. The first experiment showed infants blocks containg 0, 4 or 8 exposure events (Exp A; pre-registered [here](https://osf.io/gux4f/?view_only=b4d6d0118dfa41a79fb431d389f4fecc)). The second experiment showed infants blocks containing 1, 3 or 9 exposure events (Exp B; pre-registered [here](https://osf.io/w6pgu/?view_only=39ee108159884761a0c5bc68d11918df)).
 
 ## Methods
 
 ```{r child = "04_experiment2_methods.Rmd"}
 ```
 
-## Results and discussion
+## Results
 
 ```{r child = "05_experiment2_results.Rmd"}
 
 ```
 
 
-# General discussion 
+# Discussion 
 
 ```{r child = "06_general_discussion.Rmd"}
 ```

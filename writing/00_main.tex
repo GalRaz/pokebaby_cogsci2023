@@ -95,7 +95,7 @@ predictively, rather than post-hoc.
 
 \textbf{Keywords:}
 developmental psychology; familiarity preferences; habituation;
-learning; attention; cognitive development
+learning; attention
 \end{abstract}
 
 \hypertarget{introduction}{%
@@ -172,30 +172,26 @@ By contrast, other models do seem to contain either indirect or direct
 predictions of familiarity preference. Kidd, Piantadosi, \& Aslin (2012)
 proposed the ``Goldilocks effect'' -- infants' tendency to focus on
 things that are neither too simple nor too complex - as a formal account
-of infant looking. In this work, a Dirichlet-multinomial model was used
-to learn the relative probability of objects appearing in specific
-locations and related to infants' lookaway probabilities. A U-shaped
-linking function between the model output and attention fit the infants'
-behavior best, and although this effect was documented in a paradigm
-that is very different from a typical looking time paradigm -- infants
-were looking at a stream of rapidly changing events and their lookaways
-were recorded -- it has been proposed that the preference for
-intermediately complex events may account for familiarity preferences
-(CITE; Stahl TICS paper i think). More recent work that uses rational
-information gathering agents to explain infant looking behaviors
-directly predicts familiarity preferences (Karni, Mattar, Emberson, \&
-Daw, 2022). This model is similar to RANCH in that its learning policy
-considers information gain, but it also considers another source of
-value (i.e.~Need: how frequently the information about each stimulus
-will be used). These dual processes generate non-monotonic changes in
-looking time, which predict both familiarity preferences and novelty
-preferences.
-
-To evaluate and compare the predictions of these different model types,
-it is necessary to have quantitative estimates of habituation, novelty
-preferences, and familiarity preferences in infants. Under what
-circumstances do infants look longer at a stimulus, following limited
-exposure and thus potentially partial encoding?
+of infant looking. In this work, an ideal learner model tracked the
+relative probability of objects appearing in specific locations in a
+continuous stream of events, and infants' probability of looking away
+from each successive object had a U-shaped link to the models'
+surprisal. It has been suggested that infants' tendency to stay most
+engaged with moderately predictable events may be a reflection of
+familiarity preferences at early stages of encoding. More recent work
+modeled rational information gathering agents to explain infant looking
+behaviors directly predicts familiarity preferences (Karni, Mattar,
+Emberson, \& Daw, 2022). This model is similar to RANCH in that its
+learning policy considers information gain, but it also considers
+another source of value (i.e.~information ``need'': how frequently the
+information about each stimulus will be used). These dual processes
+generate non-monotonic changes in looking time, which predict both
+familiarity preferences and novelty preferences. To evaluate and compare
+the predictions of these different model types, it is necessary to have
+quantitative estimates of habituation, novelty preferences, and
+familiarity preferences in infants. Under what circumstances do infants
+look longer at a stimulus, following limited exposure and thus
+potentially partial encoding?
 
 In this paper, we aim to offer a stronger empirical foundation for
 understanding how the duration of exposure influences looking
@@ -228,9 +224,9 @@ the stimuli encoding.
 
 To test this age hypothesis, we tested young children on an experimental
 paradigm that has captured habituation and novelty preference in adults
-(Cao et al., 2022). According to Hunter \& Ames (1988), younger subjects
-should be slower in processing information, making them more likely to
-show a familiarity preference.
+(Fig. 1: left panel, Cao et al., 2022). According to Hunter \& Ames
+(1988), younger subjects should be slower in processing information,
+making them more likely to show a familiarity preference.
 
 \hypertarget{methods}{%
 \subsection{Methods}\label{methods}}
@@ -239,15 +235,28 @@ show a familiarity preference.
 \subsection{Participants}\label{participants}}
 
 66 children completed a task modified from the adult self-paced looking
-time studies reported in CITE. Following our pre-registration (LINK), 2
-children were excluded from the analysis because their performance in
-the attention-check task failed to meet the inclusion criteria
-(answering 4 out of the 8 attention check questions correctly). We also
-excluded trials with looking time that were three absolute deviations
-away from the median in the log-transformed space across participants
-(\emph{N} = 83; ). The final datasets includes 64 children in total
-(3YO: N = 18; 4YO: N = 26; 5YO: N = 20). All participants were recruited
-in a university-affiliated research preschool.
+time studies reported in Cao et al. (2022). Following our
+pre-registration
+(\href{https://aspredicted.org/blind.php?x=5WQ_YQH}{link}), 2 children
+were excluded from the analysis because their performance in the
+attention-check task failed to meet the inclusion criteria (answering 4
+out of the 8 attention check questions correctly). We also excluded
+trials with looking time that were three absolute deviations away from
+the median in the log-transformed space across participants (\emph{N} =
+83). The final datasets includes 64 children in total (3yr: N = 18; 4yr:
+N = 26; 5yr: N = 20). All participants were recruited in a
+university-affiliated research preschool.
+
+\begin{CodeChunk}
+\begin{figure*}[h]
+
+{\centering \includegraphics{figs/experimental_design-1} 
+
+}
+
+\caption[Experimental design of preschooler and infant experiments]{Experimental design of preschooler and infant experiments. There were three main differences: 1) Preschoolers responded with button presses, infants through lookaways, 2) preschoolers saw background trials after deviants, whereas deviants always appeared at the end in the infant experiments and 3) in preschoolers all trials were self-paced, whereas in infants only the last trial was self-paced.}\label{fig:experimental_design}
+\end{figure*}
+\end{CodeChunk}
 
 \hypertarget{stimuli}{%
 \subsection{Stimuli}\label{stimuli}}
@@ -271,35 +280,20 @@ trial. The child was instructed that they can press the key and move on
 to meet more monster friends whenever they want.
 
 On each trial, the child would see an animated creature appear on the
-screen. The child can move on to the next trial by pressing the space
-bar. Each block consisted of six trials. Usually, the same creature will
+screen. The child could move on to the next trial by pressing the space
+bar. Each block consisted of six trials. Usually, the same creature was
 be shown repeatedly (the background stimulus), but each block could
 contain either zero or one deviant trial. Deviant trials were trials
 that present a different creature from the background stimulus. Deviant
 trials appeared on the second, the fourth, or the sixth trial of the
 block. Each child saw eight blocks in total.
 
-At the offset of each block, a memory task was presented to ensure
-children are appropriately attending to the task. The memory task was a
-2-Alternative Forced Choice (2AFC) question, asking the children to
-identify which of the two stimuli they have seen before. The pair of
-stimuli contained one stimulus used as a background stimulus in the
-preceding block and a novel stimulus that did not appear anywhere else
-in the experiment.
+At the offset of each block, we presented a memory task to ensure
+children were appropriately attending to the task, asking them which of
+two creatures they had seen before.
 
-\begin{CodeChunk}
-\begin{figure*}[h]
-
-{\centering \includegraphics{figs/experimental_design-1} 
-
-}
-
-\caption[Experimental design of preschooler and infant experiments]{Experimental design of preschooler and infant experiments. There were three main differences: 1) Preschoolers responded with button presses, infants through lookaways, 2) preschoolers saw background trials after deviants, whereas deviants always appeared at the end in the infant experiments and 3) in preschoolers all trials were self-paced, whereas in infants only the last trial was self-paced.}\label{fig:experimental_design}
-\end{figure*}
-\end{CodeChunk}
-
-\hypertarget{results-and-discussion}{%
-\subsection{Results and discussion}\label{results-and-discussion}}
+\hypertarget{results}{%
+\subsection{Results}\label{results}}
 
 Children included in the final dataset showed a high level of accuracy
 (\emph{M} = 0.97; \emph{SD} = 0.08) in responding to the memory task
@@ -315,52 +309,51 @@ and trial type was significant, suggesting the paradigm has captured
 habituation and novelty preference in preschoolers (\(\beta\) = 0.14,
 \emph{SE} = 0.02, \emph{t} = 6.22, \emph{p} \textless{} 0.01). However,
 we did not find any significant interaction with age, nor was the main
-effect significant (all \emph{p} \textgreater{} 0.1). We also explored
-the potential familiarity preference by comparing the looking time at
-the second background trial and the second deviant trial. Under the
+effect significant (all \emph{p} \textgreater{} 0.1).
+
+We also tested for familiarity preferences by comparing the looking time
+at the second background trial and the second deviant trial. Under the
 Hunter \& Ames (1988) framework, the second trial in each block may be
 most likely to yield a familiarity preference, since participants have
-had the least amount of familiarization with the background stimulus in
-a block. If there was a familiarity preference, participants should look
-longer at a background trial than a deviant trial. However, we did not
-find evidence supporting this prediction. We ran a mixed effect model
+had the least amount of exposure to the background stimulus in a block.
+If there was a familiarity preference, participants should look longer
+at a background trial than a deviant trial. However, we did not find
+evidence supporting this prediction. We ran a mixed effect model
 predicting looking time at the second trial with trial type as the
 predictor. There was a significant trial type effect in the opposite
 direction, suggesting participants looked longer at the deviant trial
 than the background trial even with as little as one trial of
 familiarization time (\(\beta\) = 0.41, \emph{SE} = 0.03, \emph{t} =
-12.24, \emph{p} \textless{} 0.01).\\
-In summary, this experiment captured habituation and novelty preferences
-in preschoolers, replicating the patterns seen in a previous adult
-samples (Cao et al., 2022). However, in the current paradigm, we did not
-find any evidence of familiarity preferences. However, it is possible
-that processing in preschoolers is already too fast for us to induce
-partial encoding in this paradigm. In order to capture familiarity
-preference, we would need to work with an even younger population (or a
-more complex stimulus). However, the performance of 3-year-olds in this
-paradigm was noisier than their older peers (Figure X). This trend
-suggested that the current paradigm would not be suitable for testing
-even younger children. In Experiment 2, we developed a new experimental
-paradigm to measure habituation and looking preferences within
-participants in preverbal infants.
-
-\captionsetup{belowskip=2pt,aboveskip=4pt}
+12.24, \emph{p} \textless{} 0.01).
 
 \begin{CodeChunk}
 \begin{figure}[t!]
 
 \includegraphics{figs/unnamed-chunk-13-1} \hfill{}
 
-\caption[Looking times of preschoolers faceted by age showing habituation and dishabituation]{Looking times of preschoolers faceted by age showing habituation and dishabituation. Y-axis is log-transformed to reflect transformation of looking times in mixed effects models.}\label{fig:unnamed-chunk-13}
+\caption[Looking times of preschoolers faceted by age showing habituation and dishabituation, but not familiarity preferences]{Looking times of preschoolers faceted by age showing habituation and dishabituation, but not familiarity preferences. Y-axis is log-transformed to reflect transformation of looking times in mixed effects models.}\label{fig:unnamed-chunk-13}
 \end{figure}
 \end{CodeChunk}
+
+In summary, this experiment captured habituation and novelty preferences
+in preschoolers, replicating the patterns seen in a previous adult
+sample (Cao et al., 2022). In contrast, we did not find any evidence of
+familiarity preferences. It is possible that processing in preschoolers
+is already too fast for us to induce partial encoding in this paradigm.
+In order to capture familiarity preference, we would need to test with
+an even younger population (or more complex stimuli). However, given
+that the performance of 3-year-olds in this paradigm was noisier than
+their older peers (Fig. 2), the current paradigm would likely not be
+suitable for testing even younger children. In Experiment 2, we
+developed a new experimental paradigm to measure the relationship
+between exposure duration and looking preferences in preverbal infants.
 
 \hypertarget{experiment-2}{%
 \section{Experiment 2}\label{experiment-2}}
 
 In the infant paradigm, infants are familiarized to six unique stimuli
 for different exposure durations within a single session in a blocked
-design. This is in contrast to the standard infant
+design (Fig. 1, right panel). This is in contrast to the standard infant
 familiarization/habituation paradigm in which infants are familiarized
 to only one stimulus throughout the experiment, so effects of exposure
 duration must be estimated between groups of infants. By presenting
@@ -383,10 +376,10 @@ familiarizations (Exp B; pre-registered
 \hypertarget{participants-1}{%
 \subsection{Participants}\label{participants-1}}
 
-We tested a combined sample of 61 7-10 month old infants, with 29 in Exp
-A and 32 in Exp B (\(M_{age}\) = 9.58 months, 29 female). 0 participants
+We tested a combined sample of 66 7-10 month old infants, with 31 in Exp
+A and 35 in Exp B (\(M_{age}\) = 9.5 months, 31 female). 5 participants
 were excluded completely due to fussiness. We also excluded an
-additional individual test trials in which 1) infants looked at the
+additional 72 individual test trials in which 1) infants looked at the
 stimuli for less than a total 2 seconds, 2) there were momentary
 external distractions in the home of the infant or 3) the gaze
 classifier (see \textbf{Looking time coding}) had an average
@@ -403,7 +396,7 @@ set used in preschoolers, in a slightly different experimental paradigm,
 and failed to elicit replicable habituation, novelty or familiarity
 preferences. In the current studies, we presented infants with a series
 of animated animals, which we created using ``Quirky Animals'' assets
-from Unity \href{https://tinyurl.com/469xxrn7}{link}. The animals were
+from Unity (\href{https://tinyurl.com/469xxrn7}{link}). The animals were
 walking, crawling or swimming, depending on the species.
 
 \hypertarget{procedure}{%
@@ -418,35 +411,37 @@ familiarization trials. Each familiarization trial was a 5 second
 sequence: curtains open for 1 second, the animated animal was presented
 for 3 seconds, and then the curtains closed again for 1 second. We refer
 to the number of times the curtain opened and closed as the ``exposure
-duration'', which varied between blocks. During the test event, the
-infant saw either the same background animal again, or a novel animal,
-the deviant. The onset of the test event was not marked by any visual
-markers, but a bell sound played as the curtains opened, to maximize the
-chance of engagement during the test trial. The test event used an
-infant-controlled procedure: the experimenter terminated the trial when
-the infant looked away for more than three consecutive seconds. Looking
-time was then defined as the total time that the infant spent looking at
-the screen from the onset of the stimulus until the first two
-consecutive seconds of the infant looking away from the screen. If the
-infant did not look away after 60 seconds of being presented with the
-test event, the next block automatically began and infants' looking time
-for that test event was recorded as 60 seconds. Each baby saw six
-blocks: Three different exposure durations (0, 4 and 8 in Exp. A, and 1,
-3 and 9 in Exp. B) appeared twice each, once for each test event type
-(background or deviant).
+duration'', which varied between blocks.
+
+During the test event, the infant saw either the same background animal
+again, or a novel animal, the deviant. The onset of the test event was
+not marked by any visual markers, but a bell sound played as the
+curtains opened, to maximize the chance of engagement during the test
+trial. The test event used an infant-controlled procedure: the
+experimenter terminated the trial when the infant looked away for more
+than three consecutive seconds. Looking time was then defined as the
+total time that the infant spent looking at the screen from the onset of
+the stimulus until the first two consecutive seconds of the infant
+looking away from the screen. If the infant did not look away after 60
+seconds of being presented with the test event, the next block
+automatically began and infants' looking time for that test event was
+recorded as 60 seconds.
+
+Each baby saw six blocks: Three different exposure durations (0, 4 and 8
+in Exp. A, and 1, 3 and 9 in Exp. B) appeared twice each, once for each
+test event type (background or deviant).
 
 \hypertarget{looking-time-coding}{%
 \subsection{Looking time coding}\label{looking-time-coding}}
 
 To code the infants' gaze we used iCatcher+, a validated tool developed
 for robust and automatic annotation of infants' gaze direction from
-video (Erel, Potter, Jaffe-Dax, Lew-Williams, \& Bermano, 2022). To
-obtain trial-wise looking times, we merged iCatcher+ annotations with
-trial timing information, thereby fully replacing manual coding of
-looking times.
+video (Erel et al., in press). To obtain trial-wise looking times, we
+merged iCatcher+ annotations with trial timing information, thereby
+fully replacing manual coding of looking times.
 
-\hypertarget{results-and-discussion-1}{%
-\subsection{Results and discussion}\label{results-and-discussion-1}}
+\hypertarget{results-1}{%
+\subsection{Results}\label{results-1}}
 
 We pre-registered several linear mixed-effects models to test for
 habituation, novelty preferences and familiarity preferences in our
@@ -463,7 +458,7 @@ significant (main effect: \(\beta\) = 0.63; \emph{SE} = 0.89; \emph{t} =
 the linear term was significant (\(\beta\) = 4.32; \emph{SE} = 1.6;
 \emph{t} = 2.71; \emph{p} = 0.01). This suggests that looking at the
 deviant increased as a function familiarization duration, but that there
-is no special effect of partial encoding as posited by H\&A.
+is no special effect of partial encoding as posited by H\&A (Fig. 3).
 Furthermore, there was a significant decrease in looking times to the
 familiar items as a function of familiarization duration, indicating
 that infants habituated to familiar stimuli in our paradigm (\(\beta\) =
@@ -473,17 +468,18 @@ background) were robust after 8 (\(\beta\) = 0.5; \emph{SE} = 0.19;
 \emph{t} = 2.7; \emph{p} = 0.01) and 9 familiarizations (\(\beta\) =
 0.63; \emph{SE} = 0.16; \emph{t} = 4.08; \emph{p} \textless{} 0.01), as
 well as in the combined dataset (\(\beta\) = 0.57; \emph{SE} = 0.14;
-\emph{t} = 4.19; \emph{p} \textless{} 0.01). We next tested specifically
-for the existence of familiarity preference in our dataset. Similar to
-the preschooler experiment, we hypothesized that familiarity preferences
-are most likely to emerge in test trials following short
-familiarizations. However, we did not find a significant effect of
-novelty on looking times after 1 (\(\beta\) = -0.05; \emph{SE} = 0.19;
-\emph{t} = -0.24; \emph{p} = 0.81), 3 (\(\beta\) = 0.35; \emph{SE} =
-0.2; \emph{t} = 1.72; \emph{p} = 0.1) or 4 familiarizations (\(\beta\) =
--0.19; \emph{SE} = 0.21; \emph{t} = -0.89; \emph{p} = 0.38). Even when
-maximizing power by combining test events following all three
-familiarizations, there was no evidence of familiarity preferences
+\emph{t} = 4.19; \emph{p} \textless{} 0.01).
+
+We next tested specifically for the existence of familiarity preference
+in our dataset. Similar to the preschooler experiment, we hypothesized
+that familiarity preferences are most likely to emerge in test trials
+following short familiarizations. However, we did not find a significant
+effect of novelty on looking times after 1 (\(\beta\) = -0.05; \emph{SE}
+= 0.19; \emph{t} = -0.24; \emph{p} = 0.81), 3 (\(\beta\) = 0.35;
+\emph{SE} = 0.2; \emph{t} = 1.72; \emph{p} = 0.1) or 4 exposures
+(\(\beta\) = -0.19; \emph{SE} = 0.21; \emph{t} = -0.89; \emph{p} =
+0.38). Even when maximizing power by combining test events following all
+three familiarizations, there was no evidence of familiarity preferences
 (\(\beta\) = 0.05; \emph{SE} = 0.12; \emph{t} = 0.44; \emph{p} = 0.66).
 To address whether the youngest infants in our sample may show
 familiarity preferences, we ran an exploratory analysis asking whether
@@ -491,19 +487,19 @@ age interacted with the effect of novelty in the individual or combined
 short exposure trials and found no evidence of age playing a role (all
 p's \textgreater{} 0.4).
 
-\captionsetup{belowskip=2pt,aboveskip=4pt}
+\captionsetup{belowskip=0pt,aboveskip=4pt}
 
 \begin{CodeChunk}
 \begin{figure}[h]
 
 \includegraphics{figs/infant_results-1} \hfill{}
 
-\caption[Looking times to background and deviant test trials as a function of exposure duration]{Looking times to background and deviant test trials as a function of exposure duration. We find evidence of habituation and novelty prefences, but familiarity preferences. Y-axis is log-transformed to reflect transformation of looking times in mixed effects models. Grey data and dashed line show baseline looking times without familiarization.}\label{fig:infant_results}
+\caption[Looking times to background and deviant test trials as a function of exposure duration]{Looking times to background and deviant test trials as a function of exposure duration. We find evidence of habituation and novelty prefences, but not familiarity preferences. Y-axis is log-transformed to reflect transformation of looking times in mixed effects models. Grey data and dashed line show baseline looking times without familiarization.}\label{fig:infant_results}
 \end{figure}
 \end{CodeChunk}
 
-\hypertarget{general-discussion}{%
-\section{General discussion}\label{general-discussion}}
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
 
 Overall, we developed a novel looking time paradigm for infants and
 preschoolers which tests the relationship between exposure duration and
@@ -515,18 +511,21 @@ in either preschoolers or infants, suggesting that partial exposure did
 not lead to familiarity preferences. Both the presence of novelty
 preferences and habituation and the absence of familiarity preferences
 were consistent across age groups, suggesting developmental continuity
-in our paradigm. These results are consistent with the idea that, in the
-current setting, the decision of how long to look at a stimulus can be
-understood in light of a simple information gain model, like the one
-presented in Cao et al. (2022), across the lifespan. In contrast, our
-evidence does not support the idea that attention in development could
-be driven by a ``knowledge gap'' motivating infants and children to
-complete their encoding of familiar stimuli. If such a gap existed, it
-was too short to detect in our studies. The failure to find familiarity
-preferences through targeted partial encoding should also serve as a
-caution to interpretations of looking time results in which familiarity
-preferences are identified post-hoc, as it shows that such preferences
-may not arise generically. Some of these may instead be false positives.
+in our paradigm.
+
+These results are consistent with the idea that, in the current setting,
+the decision of how long to look at a stimulus can be understood in
+light of a simple information gain model, like the one presented in Cao
+et al. (2022), across the lifespan. In contrast, our evidence does not
+support the idea that attention in development could be driven by a
+``knowledge gap'' motivating infants and children to complete their
+encoding of familiar stimuli. If such a gap existed, it was too short to
+detect in our studies. The failure to find familiarity preferences
+through targeted partial encoding should also serve as a caution to
+interpretations of looking time results in which familiarity preferences
+are identified post-hoc, as it shows that such preferences may not arise
+generically. Some of these may instead be false positives.
+
 Of course, not finding familiarity preferences in our settings does not
 rule out their existence, in our paradigm or in general. First,
 familiarity preferences may be more subtle than novelty preferences, so
@@ -534,54 +533,62 @@ that the statistical power that is needed to find familiarity
 preferences is higher than that achieved in the current study. A current
 large-scale study by the ManyBabies consortium (Kosie et al., 2023)
 which aims to test the predictions made by H\&A may give insight into
-this possibility. Second, evoking familiarity preferences may depend on
-the presentation mode of stimuli: While in our studies participants see
-one stimulus, familiar or novel, at a time, many studies reporting
-familiarity preferences follow a preferential looking set-up in which
-infants are presented with both familiar and novel stimuli
-simultaneously, and their relative looking time at each is recorded. It
-may be that familiarity preferences arise due to the recognition of a
+this possibility.
+
+Second, evoking familiarity preferences may depend on the presentation
+mode of stimuli: While in our studies participants see one stimulus,
+familiar or novel, at a time, many studies reporting familiarity
+preferences follow a preferential looking set-up in which infants are
+presented with both familiar and novel stimuli simultaneously, and their
+relative looking time at each is recorded (Roder, Bushnell, \&
+Sasseville, 2000; Rose et al., 1982; Thiessen \& Saffran, 2003) It may
+be that familiarity preferences arise due to the recognition of a
 familiar stimulus among other stimuli, in which case our current
 paradigm would not be suited to detect them (though see Gustafsson et
-al., 2021). Third, prior work has emphasized the role of affective
-processes in familiarity preferences. The mere exposure effect, a widely
-documented phenomenon in social psychology, suggested that brief
-exposure to certain stimuli would be sufficient to provoke a more
-positive affect Montoya, Horton, Vevea, Citkowicz, \& Lauber (2017) .
+al., 2021).
+
+Third, prior work has emphasized the role of affective processes in
+familiarity preferences. The mere exposure effect, a widely documented
+phenomenon in social psychology, suggested that brief exposure to
+certain stimuli would be sufficient to provoke a more positive affect
+(Montoya, Horton, Vevea, Citkowicz, \& Lauber, 2017; Zajonc, 1968) .
 Therefore, it is possible that many documented familiarity preferences
 arise because of underlying positive affect. Including measurements that
 more directly tap into liking, such as reaching or pointing, and
 relating them to looking time, may help isolate the contribution of
-affect component in familiarity preferences. Finally, and most
-importantly perhaps, the learning context in which participants find
-themselves likely plays a critical role in whether they will exhibit
-familiarity preferences. This context-dependence is reflected in
-meta-analyses investigating familiarity preferences in different
-paradigms. For example, when tested on word segmentation, infants show a
-persistent preference for familiar stimuli throughout the first year
-(Bergmann \& Cristia, 2016). In contrast, when tested on statistical
-learning of novel words, infants show a consistent preference for novel
-stimuli, from 4-month- to 11 months of age (Black \& Bergmann, 2017).
-These seemingly contradictory results highlight the need for theories
-that formalize the relationship between the learning problem faced by
-participants and their attentional preferences. Recent computational
-work has begun to provide normative accounts of how context affects
-optimal exploration. For example, in environments in which past and
-present are correlated, a preference for familiar stimuli may arise to
-prepare for future encounters, while in uncorrelated environments,
-novelty preferences are optimal{[}(under some assumptions; see Dubey \&
-Griffiths (2020){]}. Similarly, in a rational analysis of attentional
-preferences, Cao et al. (2022) show that ideal learners attempting to
-maximize their expected information gain consistently seek novelty when
-trying to learn a single concept. But it is possible that once the
-learning goal or constraints on learning change e.g.~by attempting to
-learn hierarchical concepts or imposing switch costs on learning new
-concepts, optimal information-seeking may include attending to familiar
-stimuli. In conclusion, we find robust evidence for habituation and
-novelty preferences in preschoolers and infants, while failing to
-observe a non-linearity in information seeking behavior, despite
-attempting to induce partial encoding through a new looking paradigm in
-which we manipulate exposure within-subjects. Our findings suggest that
+affect component in familiarity preferences.
+
+Finally, and most importantly perhaps, the learning context in which
+participants find themselves likely plays a critical role in whether
+they will exhibit familiarity preferences. This context-dependence is
+reflected in meta-analyses investigating familiarity preferences in
+different paradigms. For example, when tested on word segmentation,
+infants show a persistent preference for familiar stimuli throughout the
+first year (Bergmann \& Cristia, 2016). In contrast, when tested on
+statistical learning of novel words, infants show a consistent
+preference for novel stimuli, from 4-month- to 11 months of age (Black
+\& Bergmann, 2017). These seemingly contradictory results highlight the
+need for theories that formalize the relationship between the learning
+problem faced by participants and their attentional preferences. Recent
+computational work has begun to provide normative accounts of how
+context affects optimal exploration. For example, in environments in
+which past and present are correlated, a preference for familiar stimuli
+may arise to prepare for future encounters, while in uncorrelated
+environments, novelty preferences are optimal{[}(under some assumptions;
+see Dubey \& Griffiths (2020){]}. Similarly, in a rational analysis of
+attentional preferences, Cao et al. (2022) show that ideal learners
+attempting to maximize their expected information gain consistently seek
+novelty when trying to learn a single concept. But it is possible that
+once the learning goal or constraints on learning change e.g.~by
+attempting to learn hierarchical concepts or imposing switch costs on
+learning new concepts, optimal information-seeking may include attending
+to familiar stimuli.
+
+In conclusion, we find robust evidence for habituation and novelty
+preferences in preschoolers and infants, while failing to observe a
+non-linearity in information seeking behavior, despite attempting to
+induce partial encoding through a new looking paradigm in which we
+manipulate exposure within-subjects. Our findings suggest that
 familiarity preferences do not arise under all circumstances of limited
 exposure to stimuli, and that post-hoc rationalizations of familiarity
 preferences observed in infant looking time data should be made with
@@ -639,9 +646,10 @@ Foundations for a unified theory of motivation, personality, and
 development. \emph{Psychological Review}, \emph{124}(6), 689.
 
 \leavevmode\vadjust pre{\hypertarget{ref-erel2022icatcher}{}}%
-Erel, Y., Potter, C. E., Jaffe-Dax, S., Lew-Williams, C., \& Bermano, A.
-H. (2022). iCatcher: A neural network approach for automated coding of
-young children's eye movements. \emph{Infancy}, \emph{27}(4), 765--779.
+Erel, Y., Shannon, K. A., Scott, K., Cao, P., Tan, X., Hart, P. K.,
+\ldots{} Liu, S. (in press). iCatcher+: Robust and automated annotation
+of infant gaze from videos collected in the lab and online.
+\emph{Advances in Methods and Practices in Psychological Sciences}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-fantz1963pattern}{}}%
 Fantz, R. L. (1963). Pattern vision in newborn infants. \emph{Science},
@@ -704,6 +712,11 @@ influence of repeated exposure on recognition, familiarity, and liking.
 Raz, G., \& Saxe, R. (2020). Learning in infancy is active, endogenously
 motivated, and depends on the prefrontal cortices. \emph{Annual Review
 of Developmental Psychology}, \emph{2}, 247--268.
+
+\leavevmode\vadjust pre{\hypertarget{ref-roder2000infants}{}}%
+Roder, B. J., Bushnell, E. W., \& Sasseville, A. M. (2000). Infants'
+preferences for familiarity and novelty during the course of visual
+processing. \emph{Infancy}, \emph{1}(4), 491--507.
 
 \leavevmode\vadjust pre{\hypertarget{ref-rose1982familiarity}{}}%
 Rose, S. A., Gottfried, A. W., Melloy-Carminar, P., \& Bridger, W. H.

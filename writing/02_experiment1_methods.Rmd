@@ -35,24 +35,22 @@ total_excluded_trial = (nrow(lower) + nrow(higher))
 ```
 
 
-`r n_subject_total` children completed a task modified from the adult self-paced looking time studies reported in CITE. Following our pre-registration (LINK), `r n_subject_total - n_subject_included` children were excluded from the analysis because their performance in the attention-check task failed to meet the inclusion criteria (answering 4 out of the 8 attention check questions correctly). We also excluded trials with looking time that were three absolute deviations away from the median in the log-transformed space across participants (*N* = `r total_excluded_trial`; ). The final datasets includes `r n_subject_included` children in total (3YO: N = `r filter(preschool_subject_df, child_age_group == 3)$n`; 4YO: N = `r filter(preschool_subject_df, child_age_group == 4)$n`; 5YO: N = `r filter(preschool_subject_df, child_age_group == 5)$n`). All participants were recruited in a university-affiliated research preschool. 
-
-
-## Stimuli 
-
-We used a subset of stimuli created for the adult self-paced looking time studies. In the previous study, we created a set of animated creatures using Spore (a game developed by Maxis in 2008). Half of the creatures had high perceptual complexity, and half had low perceptual complexity. We used the high perceptual complexity stimuli for the current study. 
-
-## Procedures 
-
-Children were tested individually in a test room by an experimenter. The experimenter invited the child to “meet some monster friends” and then familiarized the child with the laptop computer used to present the experiment. Before the test, each child went through a practice phase where they practiced pressing the space bar to move on to the next trial. The child was instructed that they can press the key and move on to meet more monster friends whenever they want. 
-
-On each trial, the child would see an animated creature appear on the screen. The child can move on to the next trial by pressing the space bar. Each block consisted of six trials. Usually, the same creature will be shown repeatedly (the background stimulus), but each block could contain either zero or one deviant trial. Deviant trials were trials that present a different creature from the background stimulus. Deviant trials appeared on the second, the fourth, or the sixth trial of the block. Each child saw eight blocks in total.
-
-At the offset of each block, a memory task was presented to ensure children are appropriately attending to the task. The memory task was a 2-Alternative Forced Choice (2AFC) question, asking the children to identify which of the two stimuli they have seen before. The pair of stimuli contained one stimulus used as a background stimulus in the preceding block and a novel stimulus that did not appear anywhere else in the experiment.
-
+`r n_subject_total` children completed a task modified from the adult self-paced looking time studies reported in @cao2022habituation. Following our pre-registration ([link](https://aspredicted.org/blind.php?x=5WQ_YQH)), `r n_subject_total - n_subject_included` children were excluded from the analysis because their performance in the attention-check task failed to meet the inclusion criteria (answering 4 out of the 8 attention check questions correctly). We also excluded trials with looking time that were three absolute deviations away from the median in the log-transformed space across participants (*N* = `r total_excluded_trial`). The final datasets includes `r n_subject_included` children in total (3yr: N = `r filter(preschool_subject_df, child_age_group == 3)$n`; 4yr: N = `r filter(preschool_subject_df, child_age_group == 4)$n`; 5yr: N = `r filter(preschool_subject_df, child_age_group == 5)$n`). All participants were recruited in a university-affiliated research preschool. 
 
 ```{r experimental_design, echo = FALSE, fig.env = "figure*", fig.pos = "h", fig.align='center', fig.width=7, fig.height=3.5, set.cap.width=T, num.cols.cap=2, fig.cap = "Experimental design of preschooler and infant experiments. There were three main differences: 1) Preschoolers responded with button presses, infants through lookaways, 2) preschoolers saw background trials after deviants, whereas deviants always appeared at the end in the infant experiments and 3) in preschoolers all trials were self-paced, whereas in infants only the last trial was self-paced."}
 img <- png::readPNG("figs/experimental_design.png")
 grid::grid.raster(img)
 ```
+
+## Stimuli 
+
+We used a subset of stimuli used in a prior adult self-paced looking time study, a set of animated creatures from the computer game Spore (developed by Maxis in 2008). 
+
+## Procedures 
+
+Children were tested individually in a test room by an experimenter. The experimenter invited the child to “meet some monster friends” and then familiarized the child with the laptop computer used to present the experiment. Before the test, each child went through a practice phase where they practiced pressing the space bar to move on to the next trial. The child was instructed that they can press the key and move on to meet more monster friends whenever they want. 
+
+On each trial, the child would see an animated creature appear on the screen. The child could move on to the next trial by pressing the space bar. Each block consisted of six trials. Usually, the same creature was be shown repeatedly (the background stimulus), but each block could contain either zero or one deviant trial. Deviant trials were trials that present a different creature from the background stimulus. Deviant trials appeared on the second, the fourth, or the sixth trial of the block. Each child saw eight blocks in total.
+
+At the offset of each block, we presented a memory task to ensure children were appropriately attending to the task, asking them which of two creatures they had seen before.
 
