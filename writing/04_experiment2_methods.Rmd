@@ -5,6 +5,7 @@
 ```{r}
 
 
+
 n_subject_expA <- nrow(infant_d %>% filter(experiment == 'A') %>% distinct(subject_num))
 n_subject_expB <- nrow(infant_d %>% filter(experiment == 'B') %>% distinct(subject_num))
 n_subject_total <- n_subject_expA + n_subject_expB
@@ -37,22 +38,27 @@ for (x in 1:n_complete_exclusions) {
 
 num_excluded_trials = excluded_df %>% filter(fam_or_test == 'test') %>% count(exclude) %>% filter(exclude) %>% pull(n)
 
+# 6 trials lost due to experimenter error
+num_exp_error_trials = 6
+
+num_excluded_trials =  num_excluded_trials + num_exp_error_trials
+
 ```
 
-We tested a combined sample of `r n_subject_total` 7-10 month old infants, with `r n_subject_expA` in Exp A and `r n_subject_expB` in Exp B ($M_{age}$ = `r mean_age` months, `r sex$n[sex$sex == 'F']` female). `r n_complete_exclusions` participants were excluded completely due to fussiness. An additional `r num_excluded_trials` individual test trials (out of `r excluded_df %>% filter(fam_or_test == 'test') %>% nrow()`, `r 100*num_excluded_trials/(excluded_df %>% filter(fam_or_test == 'test') %>% nrow())`% of trials) did not make it into the final analysis because 1) infants fussed out of the experiment at an earlier stage of the experiment, 2) infants looked at the stimuli for less than a total 2 seconds, 3) there were momentary external distractions in the home of the infant or 4) the gaze classifier (see **Looking time coding**) had an average classification confidence of less than 50%. Data collection was performed synchronously on Zoom, and infants were recruited from Lookit [@scott2017lookit] and Facebook. 
+We tested a combined sample of `r n_subject_total` 7-10 month old infants, with `r n_subject_expA` in Exp A and `r n_subject_expB` in Exp B ($M_{age}$ = `r mean_age` months, `r sex$n[sex$sex == 'F']` female). `r n_complete_exclusions` participants were excluded completely due to fussiness. An additional `r num_excluded_trials` individual test events (out of `r excluded_df %>% filter(fam_or_test == 'test') %>% nrow() + num_exp_error_trials`, `r round(100*num_excluded_trials/(excluded_df %>% filter(fam_or_test == 'test') %>% nrow()),1)`% of trials) did not make it into the final analysis because 1) infants fussed out of the experiment at an earlier stage of the experiment, 2) infants looked at the stimuli for less than a total 2 seconds, 3) there were momentary external distractions in the home of the infant or 4) the gaze classifier (see **Looking time coding**) had an average classification confidence of less than 50%. Data collection was performed synchronously on Zoom, and infants were recruited from Lookit [@scott2017lookit] and Facebook. 
 
 
 ## Stimuli
 
-Infants saw a different stimulus set from the preschoolers. In two initial studies, not included here, we showed infants the Spore stimulus set used in preschoolers, in a slightly different experimental paradigm, and failed to elicit replicable habituation, novelty or familiarity preferences. In the current studies, we presented infants with a series of animated animals, created using "Quirky Animals" assets from Unity ([link](https://tinyurl.com/469xxrn7)). The animals were walking, crawling or swimming, depending on the species.
+Infants saw a different stimulus set from the preschoolers. In two initial studies, not included here, we showed infants the Spore stimulus set used in preschoolers, in a slightly different experimental paradigm, and failed to elicit replicable habituation, novelty or familiarity preferences. In the current studies, we presented infants with a series of animated animals, created using "Quirky Animals" assets from Unity (Fig. 1, [link](https://tinyurl.com/469xxrn7)). The animals were walking, crawling or swimming, depending on the species.
 
 ## Procedure
 
-This experiment followed a block structure, where each block was divided into two sections: 1) a familiarization period and 2) a test event. Each block was preceded by our lab-standard attention getter, a salient rotating star. During the familiarization period, the infant was familiarized to a particular animal, the background, in a series of familiarization trials. Each familiarization trial was a 5 second sequence: curtains open for 1 second, the animated animal moves in place for 3 seconds, and then the curtains close for 1 second. The number of exposure events (the “exposure duration”) varied between blocks.
+This experiment followed a block structure, where each block was divided into two sections: 1) a familiarization period and 2) a test event. Each block was preceded by our lab-standard attention getter, a salient rotating star. During the familiarization period, the infant was familiarized to a particular animal, the background, in a series of familiarization trials. Each familiarization trial was a 5 second sequence: curtains open for 1 second, the animated animal moves in place for 3 seconds, and then the curtains close for 1 second. The number of familiarization trials (the “exposure duration”) varied between blocks.
 
-During the test event, the infant saw either the same background animal again, or a novel animal, the deviant. The onset of the test event was not marked by any visual markers, but a bell sound played as the curtains opened, to maximize the chance of engagement during the test trial. The test event used an infant-controlled procedure: the experimenter terminated the trial when the infant looked away for more than three consecutive seconds. Looking time was then defined as the total time that the infant spent looking at the screen from the onset of the stimulus until the first two consecutive seconds of the infant looking away from the screen. If the infant did not look away after 60 seconds of being presented with the test event, the next block automatically began and infants’ looking time for that test event was recorded as 60 seconds.
+During the test event, the infant saw either the same background animal again, or a novel animal, the deviant. The onset of the test event was not marked by any visual markers, but a bell sound played as the curtains opened, to maximize the chance of engagement during the test event. The test event used an infant-controlled procedure: the experimenter terminated the trial when the infant looked away for more than three consecutive seconds. Looking time was then defined as the total time that the infant spent looking at the screen from the onset of the stimulus until the first two consecutive seconds of the infant looking away from the screen. If the infant did not look away after 60 seconds of being presented with the test event, the next block automatically began and infants’ looking time for that test event was recorded as 60 seconds.
 
-Each baby saw six blocks: Three different exposure durations (0, 4 and 8 in Exp. A, and 1, 3 and 9 in Exp. B) appeared twice each, once for each test event type (background or deviant). 
+Each baby saw six blocks: Three different exposure durations (0, 4 and 8 in Exp. A, and 1, 3 and 9 in Exp. B) appeared twice each, once for each test event type (background or deviant). The order of blocks was counterbalanced across infants.
 
 
 ## Looking time coding
