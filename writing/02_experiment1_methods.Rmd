@@ -1,4 +1,4 @@
-## Participants 
+### Participants 
 
 ```{r}
 n_subject_total <- nrow(preschool_raw_d %>% distinct(subject))
@@ -45,11 +45,11 @@ img <- png::readPNG("figs/experimental_design.png")
 grid::grid.raster(img)
 ```
 
-## Stimuli 
+### Stimuli 
 
 We used a subset of stimuli used in a prior adult self-paced looking time study, a set of animated creatures from the computer game Spore (developed by Maxis in 2008). 
 
-## Procedures 
+### Procedure 
 
 Children were tested individually in a test room by an experimenter. The
 experimenter invited the child to "meet some monster friends" and then
