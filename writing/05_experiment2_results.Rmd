@@ -29,8 +29,6 @@ model_2c <- lmer(log(LT) ~ test_type + trial_num + (1 | subject_num), data = tes
 # fam pref pre-registered
 model_2d <- lmer(log(LT) ~ test_type + trial_num + (1 | subject_num), data = test_df %>% filter(fam_duration <= 4 & fam_duration != 0))
 
-
-
 # dishabituation
 model_3a <- lmer(log(LT) ~ test_type + trial_num + (1 | subject_num), data = test_df %>% filter(fam_duration == 8))
 

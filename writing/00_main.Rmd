@@ -1,5 +1,5 @@
 ---
-title: "No evidence for familiarity preferences after partial exposure to visual concepts in preschoolers and infants."
+title: "No evidence for familiarity preferences after partial exposure to visual concepts in preschoolers and infants"
 bibliography: library.bib
 csl: apa6.csl
 document-params: "10pt, letterpaper"
@@ -13,14 +13,13 @@ author-information: >
     $^1$Department of Brain and Cognitive Sciences, MIT,
     $^2$Department of Psychology, Stanford University, \\
     $^3$Department of Communicative Sciences and Disorders, California State University \\
-
     }
 
 abstract: >
-  From birth, humans constantly make decisions about what to look at and for how long. A classical framework of information-seeking in development proposes encoding as a key driver of attentional preferences - in early stages of encoding, infants and young children will prefer to engage with a familiar stimulus in order to complete their representation, while at later stages of encoding they will preferentially attend to novel stimuli. While this framework is often invoked in the interpretation of looking times studies, it has not been explicitly validated with large developmental samples. Here, we test these predictions using new looking time paradigms which manipulate exposure durations to different stimuli within-subjects. While we find robust evidence for habituation and novelty prefences across development, limiting exposure to visual concepts did not result in familiarity preferences in any age group. Our findings suggest that partial exposure may not generically lead to familiarity preferences, and that post-hoc rationalizations of observed familiarity preferences should be made with care. We argue that developmental psychology needs formal frameworks that link the learning problem faced by subjects to their attentional preferences, so that such frameworks can be applied predictively, rather than post-hoc.
+  From birth, humans constantly make decisions about what to look at and for how long. A classic framework of information-seeking in development proposes encoding as a key driver of looking behavior - in early stages of encoding, infants and young children will prefer to engage with familiar stimuli in order to complete their representation, while at later stages of encoding they will preferentially attend to novel stimuli. While this framework is often invoked in the interpretation of looking times studies, it is rarely explicitly validated empirically. Here, we test these predictions using new paradigms which manipulate exposure durations to different stimuli within-subjects. While we find robust evidence for habituation and novelty preferences across development, limiting exposure to visual concepts did not result in familiarity preferences in any age group. Our findings suggest that limited exposure does not generically lead to familiarity preferences in sequential paradigms, and that   interpretations of observed familiarity preferences should be made with care. We argue for the development of formal, predictive frameworks which link the learning problem faced by participants to their attentional preferences.
     
 keywords: >
-    developmental psychology; familiarity preferences; habituation; learning; attention
+    psychology; development; learning;
 
     
 output: 
@@ -79,14 +78,16 @@ model_3c <- readRDS( here("cached_data/infants/model_3c.rds" ))
 
 # Introduction 
 
-
 ```{r child = "01_introduction.Rmd"}
 ```
 
-
 # Experiment 1 
 
-@hunter1988multifactor posit that younger participants are more likely to exhibit familiarity preferences after the same amount of exposure to a stimulus due to their reduced encoding speed. There is some empirical evidence suggesting that younger infants show familiarity preferences in tasks in which older infants show novelty preferences [@thiessen2003cues; @cyr2013development]. This age-related change in preference may explain the lack of familiarity preference observed in adults [@cao2022habituation; @gustafsson2021visual]. It is possible that adults can process so fast that even brief exposure is sufficient for completing the stimuli encoding. 
+@hunter1988multifactor posit that younger participants are more likely to
+exhibit familiarity preferences after the same amount of exposure to a
+stimulus due to their reduced encoding speed. There is some empirical
+evidence suggesting that younger infants show familiarity preferences in
+tasks in which older infants show novelty preferences [@thiessen2003cues; @cyr2013development]. This age-related change in preference may explain the lack of familiarity preference observed in adults [@cao2022habituation; @gustafsson2021visual]. It is possible that adults can process so fast that even brief exposure is sufficient for completing stimulus encoding. 
 
 We therefore tested young children on an experimental paradigm that has captured habituation and novelty preference in adults [Fig. 1: left panel, @cao2022habituation]. According to @hunter1988multifactor, younger subjects may be slower in processing information, making them more likely to show a familiarity preference. 
 
