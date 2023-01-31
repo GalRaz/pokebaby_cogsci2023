@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.1.26)  30 JAN 2023 18:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.1.26)  31 JAN 2023 17:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -536,7 +536,7 @@ s/galraz1/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 ers/galraz1/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users
 /galraz1/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/ga
 lraz1/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 00_main.pdf (7 pages, 236728 bytes).
+Output written on 00_main.pdf (7 pages, 236711 bytes).
 PDF statistics:
  210 PDF objects out of 1000 (max. 8388607)
  182 compressed objects within 2 object streams
