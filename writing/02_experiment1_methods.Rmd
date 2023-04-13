@@ -37,13 +37,14 @@ percent_excluded = round(total_excluded_trial / total_trial, 4) * 100
 
 ```
 
+\captionsetup{belowskip=0pt,aboveskip=0pt}
 
-`r n_subject_total` children completed a task modified from the adult self-paced looking time studies reported in @cao2022habituation. Following our pre-registration ([link](https://aspredicted.org/blind.php?x=5WQ_YQH)), `r n_subject_total - n_subject_included` children were excluded from the analysis because their performance in the attention-check task failed to meet the inclusion criteria (answering 4 out of the 8 attention check questions correctly). We also excluded trials with looking time that were three absolute deviations away from the median in the log-transformed space across participants (Total trial *N* = `r total_trial`; Excluded trial *N* = `r total_excluded_trial`, `r percent_excluded`% of the total trials). The final datasets includes `r n_subject_included` children in total (3yr: N = `r filter(preschool_subject_df, child_age_group == 3)$n`; 4yr: N = `r filter(preschool_subject_df, child_age_group == 4)$n`; 5yr: N = `r filter(preschool_subject_df, child_age_group == 5)$n`). All participants were recruited in a university-affiliated research preschool. 
-
-```{r experimental_design, echo = FALSE, fig.env = "figure*", fig.pos = "h", fig.align='center', fig.width=7, fig.height=3.5, set.cap.width=T, num.cols.cap=2, fig.cap = "Experimental design of preschooler and infant experiments. There were four main differences: 1) Preschoolers responded with button presses, infants through lookaways, 2) preschoolers saw background trials after deviants, whereas deviants always appeared at the end in the infant experiments, 3) in preschoolers all trials were self-paced, whereas in infants only the last trial was self-paced and 4) preschooler and infant paradigms used different sets of animate stimuli."}
+```{r experimental_design, echo = FALSE, fig.env = "figure*", fig.pos = "h", fig.align='center', fig.width=7, fig.height=3.5, set.cap.width=T, num.cols.cap=2, fig.cap = "Experimental design of preschooler and infant experiments. There were four main differences: 1) Preschoolers responded with button presses, infants through lookaways, 2) preschoolers saw background trials after deviants, whereas deviants always appeared at the end in the infant experiments, 3) in the experiment with preschoolers, all trials were self-paced; whereas in infants, only the last trial was self-paced and 4) preschooler and infant paradigms used different sets of animate stimuli."}
 img <- png::readPNG("figs/experimental_design.png")
 grid::grid.raster(img)
 ```
+
+`r n_subject_total` children completed a task modified from the adult self-paced looking time studies reported in @cao2022habituation. Following our pre-registration ([link](https://aspredicted.org/blind.php?x=5WQ_YQH)), `r n_subject_total - n_subject_included` children were excluded from the analysis because their performance in the attention-check task failed to meet the inclusion criteria (answering 4 out of the 8 attention check questions correctly). We also excluded trials with looking times that were three absolute deviations away from the median in the log-transformed space across participants (Total trial *N* = `r total_trial`; Excluded trial *N* = `r total_excluded_trial`, `r percent_excluded`% of the total trials). The final dataset included `r n_subject_included` children in total (3yr: N = `r filter(preschool_subject_df, child_age_group == 3)$n`; 4yr: N = `r filter(preschool_subject_df, child_age_group == 4)$n`; 5yr: N = `r filter(preschool_subject_df, child_age_group == 5)$n`). All participants were recruited in a university-affiliated research preschool. 
 
 ### Stimuli 
 
@@ -68,7 +69,6 @@ that present a different creature from the background stimulus. Deviant
 trials appeared on the second, the fourth, or the sixth trial of the
 block. Each child saw eight blocks in total.
 
-At the offset of each block, we presented a memory task to ensure
-children were appropriately attending to the task, asking them which of
-two creatures they had seen before.
+At the offset of each block, we presented a memory task to ensure children were appropriately attending to the task. We asked them which of two creatures presented on the screen they had seen before.
+
 

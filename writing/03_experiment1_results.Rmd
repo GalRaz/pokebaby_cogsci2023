@@ -48,20 +48,24 @@ mean_performance = round(mean(memory_performance_d$percent_correct), 2)
 sd_performance = round(sd(memory_performance_d$percent_correct), 2)
 ```
 
-Data and analysis are available [here](https://tinyurl.com/PokebabyCogSci2023). Children included in the final dataset showed a high level of accuracy (*M* = `r mean_performance`; *SD* = `r sd_performance`) in responding to the memory task question. This suggests that the children were engaged in the
+Data and analysis are available at [https://tinyurl.com/PokebabyCogSci2023](https://tinyurl.com/PokebabyCogSci2023). Children included in the final dataset showed a high level of accuracy (*M* = `r mean_performance`; *SD* = `r sd_performance`) in responding to the memory task question. This suggests that the children were engaged in the
 experiment. We anticipated that the preschooler children would show
-patterns of habituation and dishabituation similar to adults. We also
+patterns of habituation and novelty preferences similar to adults. We also
 expected to see developmental changes in the shape of habituation
 trajectories. Our pre-registered mixed-effect model included a three-way
 interaction term between age (in months; scaled and centered), trial
 number, and trial type (background or deviant) to predict
-log-transformed looking time. The interaction between the trial number
+log-transformed looking time (Fig. 2). The interaction between the trial number
 and trial type was significant, suggesting the paradigm has captured
-habituation and novelty preference in preschoolers ($\beta$ = `r filter(summary_preschool_mod_df, term == "trial_number:trial_typedeviant")$estimate`, *SE* = `r filter(summary_preschool_mod_df, term == "trial_number:trial_typedeviant")$std.error`, *t* = `r filter(summary_preschool_mod_df, term == "trial_number:trial_typedeviant")$statistic`, *p* < 0.01). However, we did not find any significant interaction with age, nor was the main effect significant (all *p* > 0.1).
+habituation and novelty preferences in preschoolers ($\beta$ = `r filter(summary_preschool_mod_df, term == "trial_number:trial_typedeviant")$estimate`, *SE* = `r filter(summary_preschool_mod_df, term == "trial_number:trial_typedeviant")$std.error`, *t* = `r filter(summary_preschool_mod_df, term == "trial_number:trial_typedeviant")$statistic`, *p* < 0.01). However, we did not find any significant interaction with age, nor was the main effect significant (all *p* > 0.1).
 
-We also tested for familiarity preferences by comparing the looking time at the second background trial and the second deviant trial. Under the [@hunter1988multifactor] framework, the second trial in each block may be most likely to yield a familiarity preference, since participants have had the least amount of exposure to the background stimulus in a block. If there was a familiarity preference, participants should look longer at a background trial than a deviant trial. However, we did not find evidence supporting this prediction. We ran a mixed effect model predicting looking time at the second trial with trial type as the predictor. There was a significant trial type effect in the opposite direction, suggesting participants looked longer at the deviant trial than the background trial even with as little as one trial of familiarization time ($\beta$ = `r round(filter(fam_mod_df, term == "trial_typedeviant")$estimate, 2)`, *SE* = `r round(filter(fam_mod_df, term == "trial_typedeviant")$std.error, 2)`, *t* = `r round(filter(fam_mod_df, term == "trial_typedeviant")$statistic, 2)`, *p* < 0.01).
+We also tested for familiarity preferences by comparing the looking time at the second background trial and the second deviant trial. Under the [@hunter1988multifactor] framework, the second trial in each block is most likely to yield a familiarity preference, since participants have had the least amount of exposure to the background stimulus in a block. If there was a familiarity preference, participants should look longer at a background trial than a deviant trial. However, we did not find evidence supporting this prediction. We ran a mixed effect model predicting looking time at the second trial with trial type as the predictor. There was a significant trial type effect in the opposite direction, suggesting participants looked longer at the deviant trial than the background trial even with as little as one trial of familiarization time ($\beta$ = `r round(filter(fam_mod_df, term == "trial_typedeviant")$estimate, 2)`, *SE* = `r round(filter(fam_mod_df, term == "trial_typedeviant")$std.error, 2)`, *t* = `r round(filter(fam_mod_df, term == "trial_typedeviant")$statistic, 2)`, *p* < 0.01).
 
-```{r, echo = FALSE, fig.env = "figure", fig.pos = "t!", fig.width=3.5, fig.height=2.2, fig.align = "left", set.cap.width=T, num.cols.cap=1, fig.cap = "Looking times of preschoolers faceted by age showing habituation and dishabituation, but not familiarity preferences. Y-axis is log-transformed to reflect transformation of looking times in mixed effects models."}
+In summary, this experiment captured habituation and novelty preferences in preschoolers, replicating the patterns seen in a previous adult sample [@cao2022habituation]. In addition, similar to the previous adult results, we did not find any evidence of familiarity preferences.
+
+One reason for not observing familiarity preferences may be that processing in preschoolers is already too fast to induce partial encoding in this paradigm. If so, we would need to test a younger population. However, given that the performance of 3-year-olds in this paradigm was noisier than their older peers (Fig. 2), the current paradigm would likely not be suitable for testing even younger children. In Experiment 2, we developed a new experimental paradigm to measure the relationship between exposure duration and looking preferences in preverbal infants.
+
+```{r, echo = FALSE, fig.env = "figure", fig.pos = "t!", fig.width=3.5, fig.height=2.2, fig.align = "left", set.cap.width=T, num.cols.cap=1, fig.cap = "Looking time of preschoolers faceted by age showing habituation and dishabituation, but not familiarity preferences. Y-axis is log-transformed to reflect transformation of looking time in mixed effects models."}
 
 preschool_d %>% 
     mutate(deviant_position_print = case_when(
@@ -106,4 +110,3 @@ preschool_d %>%
   ) + scale_y_continuous(breaks = c(2,3.5,6))
 
 ```
-In summary, this experiment captured habituation and novelty preferences in preschoolers, replicating the patterns seen in a previous adult sample [@cao2022habituation]. In contrast, we did not find any evidence of familiarity preferences. It is possible that processing in preschoolers is already too fast for us to induce partial encoding in this paradigm. If so, we would need to test a younger population. However, given that the performance of 3-year-olds in this paradigm was noisier than their older peers (Fig. 2), the current paradigm would likely not be suitable for testing even younger children. In Experiment 2, we developed a new experimental paradigm to measure the relationship between exposure duration and looking preferences in preverbal infants.
