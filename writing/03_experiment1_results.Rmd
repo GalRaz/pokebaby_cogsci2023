@@ -52,7 +52,7 @@ Data and analysis are available at [https://tinyurl.com/PokebabyCogSci2023](http
 experiment. We anticipated that the preschooler children would show
 patterns of habituation and novelty preferences similar to adults. We also
 expected to see developmental changes in the shape of habituation
-trajectories. Our pre-registered mixed-effect model included a three-way
+trajectories, with older children habituate faster than younger children. Our pre-registered mixed-effect model included a three-way
 interaction term between age (in months; scaled and centered), trial
 number, and trial type (background or deviant) to predict
 log-transformed looking time (Fig. 2). The interaction between the trial number

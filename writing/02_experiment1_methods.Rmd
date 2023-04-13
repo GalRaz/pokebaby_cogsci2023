@@ -1,3 +1,5 @@
+
+
 ### Participants 
 
 ```{r}
@@ -48,7 +50,7 @@ grid::grid.raster(img)
 
 ### Stimuli 
 
-We used a subset of stimuli used in a prior adult self-paced looking time study, a set of animated creatures from the computer game Spore (developed by Maxis in 2008). 
+We used a subset of stimuli used in a prior adult self-paced looking time study, a set of animated creatures from the computer game Spore (developed by Maxis in 2008). The creatures all move in place. There were 24 different animated creatures in total.
 
 ### Procedure 
 
@@ -61,13 +63,13 @@ trial. The child was instructed that they can press the key and move on
 to meet more monster friends whenever they want.
 
 
-On each trial, the child would see an animated creature appear on the
+On each trial, the child would see a random animated creature drawn from the stimuli set appear on the
 screen. The child could move on to the next trial by pressing the space
 bar. Each block consisted of six trials. Usually, the same creature was shown repeatedly (the background stimulus), but each block could
 contain either zero or one deviant trial. Deviant trials were trials
 that present a different creature from the background stimulus. Deviant
 trials appeared on the second, the fourth, or the sixth trial of the
-block. Each child saw eight blocks in total.
+block. Each deviant trial contained a different creature. Each child saw eight blocks in total. 
 
 At the offset of each block, we presented a memory task to ensure children were appropriately attending to the task. We asked them which of two creatures presented on the screen they had seen before.
 
