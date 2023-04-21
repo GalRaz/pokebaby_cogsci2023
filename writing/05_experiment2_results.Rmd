@@ -33,6 +33,11 @@ model_3b <- lmer(log(LT) ~ test_type + block_num + (1 | subject_num), data = tes
 model_3c <- lmer(log(LT) ~ test_type + block_num + (1 | subject_num), data = test_df %>% filter(fam_duration >= 8))
 
 
+# testing the effect of animal random effect
+largeModel <- lmer(log(LT) ~ poly(fam_duration,2) *test_type + block_num + (1 | animal) + (1 | subject_num), data = test_df)
+smallModel <- lmer(log(LT) ~ poly(fam_duration,2) *test_type + block_num + (1 | subject_num), data = test_df)
+model_comparison <-pp <- PBmodcomp(largeModel, smallModel)
+
 saveRDS(model_1a, here("cached_data/infants/model_1a.rds"))
 saveRDS(model_2a, here("cached_data/infants/model_2a.rds"))
 saveRDS(model_2b, here("cached_data/infants/model_2b.rds"))
@@ -41,6 +46,10 @@ saveRDS(model_2d, here("cached_data/infants/model_2d.rds"))
 saveRDS(model_3a, here("cached_data/infants/model_3a.rds"))
 saveRDS(model_3b, here("cached_data/infants/model_3b.rds"))
 saveRDS(model_3c, here("cached_data/infants/model_3c.rds"))
+
+# save large model to exctract variance of the two random effects
+saveRDS(summary(largeModel), here("cached_data/infants/model_4a.rds"))
+saveRDS(model_comparison, here("cached_data/infants/model_4b.rds"))
 
 ```
 
@@ -68,11 +77,18 @@ Lastly, to address whether the youngest infants in our sample may show familiari
 ```{r infant_results, echo = FALSE, fig.env = "figure", fig.pos = "h", fig.align='left', fig.width=3.5, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap = "Looking time to background and deviant test events as a function of exposure duration. We found evidence of habituation and novelty prefences, but not familiarity preferences. Y-axis is log-transformed to reflect the transformation of looking time in mixed effects models. The gray point at exposure duration 0 and the corresponding dashed reference line show baseline looking time without prior exposure."}
 
 # exclude invalid trials
-infant_d %<>% filter(!exclude)
+infant_d %<>% filter(!exclude) 
 
-plot_df = infant_d %>% filter(fam_or_test == 'test') %>% mutate(test_type = case_when(fam_duration == 0 ~ 'baseline', test_type == 'fam' ~ 'background', test_type == 'nov' ~ 'deviant'), test_type = factor(test_type, levels = c('baseline', 'background', 'deviant')))
+plot_df = infant_d %>% select(-c("...1")) %>% mutate(test_type = case_when(fam_duration == 0 ~ 'baseline', test_type == 'fam' ~ 'background', test_type == 'nov' ~ 'deviant'), test_type = factor(test_type, levels = c('baseline', 'background', 'deviant'))) %>% arrange(experiment, subject_num, block_num)
 
-ggplot(plot_df %>% filter(fam_or_test == 'test', !exclude), aes(x=as.numeric(fam_duration), y=LT, group=test_type, color = test_type)) + geom_point(alpha=0.1, size = 1.2, position = position_jitterdodge(jitter.width = 0.2)) + stat_summary(fun.data = "mean_cl_boot", geom = "pointrange", position = position_dodge(width = 1), size = 0.6) + xlab('exposure duration') + ylab('Looking time (s)') + labs(color = 'Test type') + theme_classic(base_size = 14) + theme(strip.text.x = element_text(size = 20, colour = "black")) + scale_x_continuous(breaks = c(0, 1,3,4,8,9)) + geom_smooth(method ="lm", alpha = 0.4) + scale_y_log10() + geom_hline(yintercept = plot_df %>% filter(test_type == 'baseline') %>% pull(LT) %>% mean(), linetype = "dashed") + scale_y_continuous(breaks = c(3,10, 18, 27)) + theme(legend.title=element_blank(), 
+ggplot(plot_df %>% filter(fam_or_test == 'test'), aes(x=as.numeric(fam_duration), y=LT, group=test_type, color = test_type)) + geom_point(alpha=0.1, size = 1.2, position = position_jitterdodge(jitter.width = 0.2)) + stat_summary(fun.data = "mean_cl_boot", geom = "pointrange", position = position_dodge(width = 1), size = 0.6) + xlab('exposure duration') + ylab('Looking time (s)') + labs(color = 'Test type') + theme_classic(base_size = 14) + theme(strip.text.x = element_text(size = 20, colour = "black")) + scale_x_continuous(breaks = c(0, 1,2,3,4,6,8,9)) + geom_smooth(method ="lm", alpha = 0.4) + scale_y_log10() + geom_hline(yintercept = plot_df %>% filter(test_type == 'baseline') %>% pull(LT) %>% mean(), linetype = "dashed") + scale_y_continuous(breaks = c(3,10, 18, 27)) + theme(legend.title=element_blank(), 
+    legend.position = "bottom",
+    legend.box.margin=margin(-10,-10,-10,-10),
+    legend.margin=margin(3,3,3,3),
+    legend.text = element_text(size = 10)) + scale_color_manual(values = c("blue", "red"), limits = c('background', 'deviant')) +
+    coord_cartesian(ylim=c(3, 35))
+
+ggplot(plot_df%>%pivot_wider(names_from = fam_or_test, values_from = LT, names_prefix = 'LT_') %>% filter(test_type !='baseline'), aes(x=LT_fam, y=LT_test, group=test_type, color = test_type)) + geom_point(alpha=0.2, size = 2) + xlab('LT at fam') + ylab('LT at test') + labs(color = 'Test type') + theme_classic(base_size = 14) + theme(strip.text.x = element_text(size = 20, colour = "black")) + geom_smooth(method ="lm")+ theme(legend.title=element_blank(), 
     legend.position = "bottom",
     legend.box.margin=margin(-10,-10,-10,-10),
     legend.margin=margin(3,3,3,3),

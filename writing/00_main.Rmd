@@ -84,6 +84,9 @@ model_3a <- readRDS( here("cached_data/infants/model_3a.rds" ))
 model_3b <- readRDS( here("cached_data/infants/model_3b.rds" ))
 model_3c <- readRDS( here("cached_data/infants/model_3c.rds" ))
 
+model_4a <- readRDS( here("cached_data/infants/model_4a.rds"))
+model_4b <- readRDS( here("cached_data/infants/model_4a.rds"))
+
 ```
 
 
