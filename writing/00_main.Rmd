@@ -60,6 +60,7 @@ library(lme4)
 library(lmerTest)
 library(broom.mixed)
 library(magrittr)
+library(pbkrtest)
 
 preschool_d <- read_csv(here("data/preschooler/clean_data.csv"))
 preschool_raw_d <- read_csv(here("data/preschooler/merged_data.csv"))

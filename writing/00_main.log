@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.1.26)  28 MAR 2023 15:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2022.1.26)  5 MAY 2023 22:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -457,65 +457,76 @@ Underfull \vbox (badness 10000) detected at line 72
 <figs/experimental_design-1.pdf, id=52, 505.89pt x 252.945pt>
 File: figs/experimental_design-1.pdf Graphic file (type pdf)
 <use figs/experimental_design-1.pdf>
-Package pdftex.def Info: figs/experimental_design-1.pdf  used on input line 232
+Package pdftex.def Info: figs/experimental_design-1.pdf  used on input line 240
 .
 (pdftex.def)             Requested size: 505.88875pt x 252.94438pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+
+Underfull \vbox (badness 2302) has occurred while \output is active []
+
+[2]
 LaTeX Font Info:    Trying to load font information for OML+ptm on input line 3
-02.
+13.
 (/Users/galraz1/Library/TinyTeX/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 302.
-[2]
-<figs/unnamed-chunk-13-1.pdf, id=71, 252.945pt x 158.5925pt>
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 313.
+<figs/unnamed-chunk-13-1.pdf, id=68, 252.945pt x 158.5925pt>
 File: figs/unnamed-chunk-13-1.pdf Graphic file (type pdf)
 <use figs/unnamed-chunk-13-1.pdf>
-Package pdftex.def Info: figs/unnamed-chunk-13-1.pdf  used on input line 339.
+Package pdftex.def Info: figs/unnamed-chunk-13-1.pdf  used on input line 350.
 (pdftex.def)             Requested size: 252.94438pt x 158.59209pt.
 
-Overfull \hbox (9.03313pt too wide) in paragraph at lines 339--340
+Overfull \hbox (9.03313pt too wide) in paragraph at lines 350--351
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
+Underfull \hbox (badness 10000) in paragraph at lines 350--351
 
  []
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [3 <./figs/experimental_design-1.pdf>]
-Underfull \hbox (badness 1681) in paragraph at lines 391--401
+Underfull \hbox (badness 1681) in paragraph at lines 406--416
  []\OT1/ptm/b/n/10 Stimuli[] \OT1/ptm/m/n/10 In-fants saw a dif-fer-ent stim-u-
 lus set from the
  []
 
 
-Underfull \hbox (badness 1072) in paragraph at lines 446--451
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[4 <./figs/unnamed-chunk-13-1.pdf>]
+Underfull \hbox (badness 1072) in paragraph at lines 475--484
 \OT1/pcr/m/n/10 PokebabyCogSci2023$[]\OT1/ptm/m/n/10 . We pre-registered sev-er
 al lin-ear
  []
 
-[4 <./figs/unnamed-chunk-13-1.pdf>]
-<figs/infant_results-1.pdf, id=111, 252.945pt x 216.81pt>
+<figs/infant_results-1.pdf, id=108, 252.945pt x 216.81pt>
 File: figs/infant_results-1.pdf Graphic file (type pdf)
 <use figs/infant_results-1.pdf>
-Package pdftex.def Info: figs/infant_results-1.pdf  used on input line 498.
+Package pdftex.def Info: figs/infant_results-1.pdf  used on input line 531.
 (pdftex.def)             Requested size: 252.94438pt x 216.80946pt.
 
-Overfull \hbox (9.03313pt too wide) in paragraph at lines 498--499
+Overfull \hbox (9.03313pt too wide) in paragraph at lines 531--532
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
+Underfull \hbox (badness 10000) in paragraph at lines 531--532
 
  []
 
-[5 <./figs/infant_results-1.pdf>] [6]
-Underfull \hbox (badness 2012) in paragraph at lines 723--728
+[5 <./figs/infant_results-1.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[6]
+Underfull \hbox (badness 2012) in paragraph at lines 756--761
  []\OT1/ptm/m/n/10 Kosie, J., Zetter-sten, M., Abu-Zhaya, R., Amso, D.,
  []
 
@@ -530,7 +541,7 @@ Here is how much of TeX's memory you used:
  29977 multiletter control sequences out of 15000+600000
  496021 words of font info for 77 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 61i,11n,63p,648b,357s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,11n,63p,648b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/galraz1/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</User
 s/galraz1/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 </Users/galraz1/Library/TinyTeX/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><
@@ -538,10 +549,10 @@ s/galraz1/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
 rs/galraz1/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/
 galraz1/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/gal
 raz1/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on 00_main.pdf (7 pages, 249137 bytes).
+Output written on 00_main.pdf (7 pages, 252368 bytes).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
+ 220 PDF objects out of 1000 (max. 8388607)
+ 190 compressed objects within 2 object streams
  77 named destinations out of 1000 (max. 500000)
  96 words of extra memory for PDF output out of 10000 (max. 10000000)
 
