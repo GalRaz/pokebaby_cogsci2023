@@ -75,8 +75,6 @@ fam_mod <- readRDS(here("cached_data/preschooler/fam_mod.Rds"))
 
 # infants
 model_1a <- readRDS( here("cached_data/infants/model_1a.rds" ))
-
-
 model_2a <- readRDS( here("cached_data/infants/model_2a.rds" ))
 model_2b <- readRDS( here("cached_data/infants/model_2b.rds" ))
 model_2c <- readRDS( here("cached_data/infants/model_2c.rds" ))
@@ -84,9 +82,6 @@ model_2d <- readRDS( here("cached_data/infants/model_2d.rds" ))
 model_3a <- readRDS( here("cached_data/infants/model_3a.rds" ))
 model_3b <- readRDS( here("cached_data/infants/model_3b.rds" ))
 model_3c <- readRDS( here("cached_data/infants/model_3c.rds" ))
-
-model_4a <- readRDS( here("cached_data/infants/model_4a.rds"))
-model_4b <- readRDS( here("cached_data/infants/model_4a.rds"))
 
 ```
 

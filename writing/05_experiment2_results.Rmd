@@ -7,7 +7,7 @@ infant_d %<>% filter(!exclude)
 mean_age = infant_d %>% distinct(subject_num, experiment, age) %>% pull(age) %>% mean()
 sd_age = infant_d %>% distinct(subject_num, experiment, age) %>% pull(age) %>% sd()
 
-test_df = infant_d %>% mutate(fam_duration = as.numeric(fam_duration), animal = as.factor(animal), centered_age = (age - mean_age) / sd_age )
+test_df = infant_d %>% filter(fam_or_test == 'test') %>% mutate(fam_duration = as.numeric(fam_duration), animal = as.factor(animal), centered_age = (age - mean_age) / sd_age )
 
 
 # EXP3 only
@@ -31,7 +31,6 @@ model_3a <- lmer(log(LT) ~ test_type + block_num + (1 | subject_num), data = tes
 model_3b <- lmer(log(LT) ~ test_type + block_num + (1 | subject_num), data = test_df %>% filter(fam_duration == 9))
 
 model_3c <- lmer(log(LT) ~ test_type + block_num + (1 | subject_num), data = test_df %>% filter(fam_duration >= 8))
-
 
 saveRDS(model_1a, here("cached_data/infants/model_1a.rds"))
 saveRDS(model_2a, here("cached_data/infants/model_2a.rds"))
@@ -73,7 +72,7 @@ infant_d %<>% filter(!exclude)
 
 plot_df = infant_d %>% select(-c("...1")) %>% mutate(test_type = case_when(fam_duration == 0 ~ 'baseline', test_type == 'fam' ~ 'background', test_type == 'nov' ~ 'deviant'), test_type = factor(test_type, levels = c('baseline', 'background', 'deviant'))) %>% arrange(experiment, subject_num, block_num)
 
-ggplot(plot_df %>% filter(fam_or_test == 'test'), aes(x=as.numeric(fam_duration), y=LT, group=test_type, color = test_type)) + geom_point(alpha=0.1, size = 2, position = position_jitterdodge(jitter.width = 0.2)) + stat_summary(fun.data = "mean_cl_boot", geom = "pointrange", position = position_dodge(width = 1), size = 0.6) + xlab('exposure duration') + ylab('Looking time (s)') + labs(color = 'Test type') + theme_classic(base_size = 20) + theme(strip.text.x = element_text(size = 20, colour = "black")) + scale_x_continuous(breaks = c(0, 1,2,3,4,6,8,9)) + geom_smooth(method ="lm", alpha = 0.4) + scale_y_log10() + geom_hline(yintercept = plot_df %>% filter(test_type == 'baseline') %>% pull(LT) %>% mean(), linetype = "dashed") + scale_y_continuous(breaks = c(3,10, 18, 27)) + theme(legend.title=element_blank(), 
+ggplot(plot_df %>% filter(fam_or_test == 'test'), aes(x=as.numeric(fam_duration), y=LT, group=test_type, color = test_type)) + geom_point(alpha=0.1, size = 2, position = position_jitterdodge(jitter.width = 0.2)) + stat_summary(fun.data = "mean_cl_boot", geom = "pointrange", position = position_dodge(width = 1), size = 0.6) + xlab('exposure duration') + ylab('Looking time (s)') + labs(color = 'Test type') + theme_classic(base_size = 15) + theme(strip.text.x = element_text(size = 20, colour = "black")) + scale_x_continuous(breaks = c(0, 1,3,4,8,9)) + geom_smooth(method ="lm", alpha = 0.4) + scale_y_log10() + geom_hline(yintercept = plot_df %>% filter(test_type == 'baseline') %>% pull(LT) %>% mean(), linetype = "dashed") + scale_y_continuous(breaks = c(3,10, 18, 27)) + theme(legend.title=element_blank(), 
     legend.position = "bottom",
     legend.box.margin=margin(-10,-10,-10,-10),
     legend.margin=margin(3,3,3,3),
@@ -91,13 +90,13 @@ ggplot(plot_df %>% filter(fam_or_test == 'test'), aes(x=as.numeric(fam_duration)
   \hline
  Predictor & Coefficient & Std error & t & df & p value \\ 
   \hline
-(Intercept) & 2.79 & 0.11 & 25.13 & 179.98 & \textless{ 0.001} \\ 
-  \textbf{Exposure duration} & -2.94 & 0.90 & -3.253 & 246.14 & 0.001 \\ 
-  \textbf{Squared exposure duration} & 0.70 & 0.90 & 0.78 & 244.54 & 0.438 \\ 
-  \textbf{Novelty} & 0.19 & 0.09 & 2.16 & 245.72 & 0.031 \\ 
-  \textbf{Block number} & -0.11 & 0.02 & -4.54 & 248.53 & \textless{ 0.001} \\ 
-  \textbf{Exposure duration} : \textbf{Novelty} & 4.93 & 1.59 & 3.10 & 250.18 & 0.002 \\ 
-  \textbf{Squared exposure duration} : \textbf{Novelty} & 0.23 & 1.63 & 0.14 & 250.91 & 0.889 \\ 
+(Intercept) & 2.99 & 0.11 & 27.20 & 175.84 & \textless{ 0.001} \\ 
+  \textbf{Exposure duration} & -5.01 & 0.95 & -5.25 & 269.60 & \textless{ 0.001} \\ 
+  \textbf{Squared exposure duration} & 0.09 & 0.91 & 0.098 & 266.09 & 0.92 \\ 
+  \textbf{Novelty} & 0.22 & 0.09 & 2.44 & 269.98 & 0.016 \\ 
+  \textbf{Block number} & -0.16 & 0.02 & -6.55 & 269.04 & \textless{ 0.001} \\ 
+  \textbf{Exposure duration} : \textbf{Novelty} & 6.92 & 1.65 & 4.20 & 271.34 & \textless{ 0.001} \\ 
+  \textbf{Squared exposure duration} : \textbf{Novelty} & -0.23 & 1.68 & -0.16 & 270.34 & 0.874 \\ 
    \hline
 \end{tabular}
 \caption{Mixed effects model results testing for a non-linearity in infant looking time.}\label{wrap-tab:1}
